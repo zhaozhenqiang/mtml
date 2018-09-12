@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/bg_activity"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_title_right_text"/>
+
+    <com.mutoumulao.expo.redwood.view.BaseRecyclerView
+        android:id="@+id/rv_address"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:divider="@color/line_color"
+        android:dividerHeight="@dimen/height_1px"
+        android:layout_height="wrap_content"/>
+
+    <include layout="@layout/layout_button_red"/>
+
+</LinearLayout>

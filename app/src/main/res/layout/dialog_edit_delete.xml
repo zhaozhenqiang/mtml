@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/ll_edit"
+        style="@style/common_45dp_linearLayout">
+
+        <TextView
+            android:text="编辑"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/height_15dp"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:textColor="@color/tc_black3"
+            android:layout_height="match_parent"/>
+
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/line_color"
+        android:layout_height="@dimen/height_1px"/>
+    <LinearLayout
+        android:id="@+id/ll_delete"
+        style="@style/common_45dp_linearLayout">
+
+        <TextView
+            android:text="删除"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/height_15dp"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:textColor="@color/tc_black3"
+            android:layout_height="match_parent"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

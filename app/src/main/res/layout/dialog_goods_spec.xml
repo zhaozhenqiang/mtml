@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/height_15dp"
+        android:paddingLeft="@dimen/height_15dp"
+        android:paddingRight="@dimen/height_15dp">
+
+
+        <ImageView
+            android:id="@+id/iv_store_head"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@color/line_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/height_10dp"
+            android:layout_toRightOf="@+id/iv_store_head"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/text_size_15">
+
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="价格"
+                android:textColor="@color/tc_red_price"
+                android:textSize="@dimen/text_size_12" />
+
+            <TextView
+                android:id="@+id/tv_inventory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/height_5dp"
+                android:text="库存"
+                android:textColor="@color/tc_black6"
+                android:textSize="@dimen/text_size_12" />
+
+            <TextView
+                android:id="@+id/tv_select_spec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/height_5dp"
+                android:text="已选择"
+                android:textColor="@color/tc_black6"
+                android:textSize="@dimen/text_size_12" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/bg_line"
+        android:layout_marginTop="@dimen/text_size_20"
+        android:layout_height="@dimen/height_1px"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/height_15dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/height_15dp"
+        android:paddingRight="@dimen/height_15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.mutoumulao.expo.redwood.view.BaseRecyclerView
+                android:id="@+id/rv_goods_spec"
+                android:divider="@null"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/height_10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="数量"
+                    android:textColor="@color/tc_black3" />
+
+                <com.mutoumulao.expo.redwood.view.AmountView
+                    android:id="@+id/av_add_subtract"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    app:btnWidth="28dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="90dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/tv_diaadd_car"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/bg_add_car"
+            android:gravity="center"
+            android:text="加入购物车"
+            android:textColor="@color/white" />
+
+
+        <TextView
+            android:id="@+id/tv_diabuy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/tc_red_price"
+            android:gravity="center"
+            android:text="立即购买"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

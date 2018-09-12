@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_right_img" />
+
+    <ScrollView
+        android:id="@+id/sc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <com.mutoumulao.expo.redwood.view.BaseRecyclerView
+            android:id="@+id/rv_shopping"
+            android:paddingRight="@dimen/height_15dp"
+            android:paddingLeft="@dimen/height_15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_check"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/height_15dp"
+            android:paddingRight="@dimen/height_15dp">
+
+
+            <CheckBox
+                android:id="@+id/cb_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/height_10dp"
+                android:button="@drawable/checkbox_style_selector"
+                android:clickable="false"
+                android:focusable="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/cb_check"
+                android:text="全选"
+                android:textColor="@color/tc_black3" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|right"
+            android:paddingRight="@dimen/height_15dp"
+            android:text="合计:0.0"
+            android:textColor="@color/tc_black3" />
+
+        <TextView
+            android:id="@+id/tv_pay"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_red_fill_rect"
+            android:gravity="center"
+            android:text="结算"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

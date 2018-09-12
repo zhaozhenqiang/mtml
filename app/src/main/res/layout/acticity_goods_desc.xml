@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_right_text" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/height_15dp"
+                android:layout_marginTop="@dimen/height_5dp"
+                android:paddingBottom="@dimen/height_5dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_1px"
+                android:layout_marginLeft="@dimen/height_15dp"
+                android:layout_marginRight="@dimen/height_15dp"
+                android:background="@color/line_color" />
+
+            <EditText
+                android:id="@+id/et_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="添加图片和文字让你的宝贝看起来更诱人"
+                android:padding="@dimen/height_15dp"
+                android:textColor="@color/tc_black3" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_right_text" />
+
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_1px"
+                android:background="@color/bg_line" />
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="输入商品名称(最多60个字)"
+                android:paddingBottom="@dimen/height_10dp"
+                android:paddingLeft="@dimen/height_15dp"
+                android:paddingRight="@dimen/height_15dp"
+                android:paddingTop="@dimen/height_10dp"
+                android:textColor="@color/tc_black3"
+                android:maxLength="60"
+                android:textColorHint="@color/tc_black9" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_10dp"
+                android:background="@color/bg_line" />
+
+
+            <LinearLayout
+                android:id="@+id/ll_type_name"
+                style="@style/common_45dp_linearLayout">
+
+                <TextView
+                    style="@style/common_select_text"
+                    android:text="类目" />
+
+                <TextView
+                    android:id="@+id/tv_type_name"
+                    style="@style/common_01color_text"
+                    android:hint="@string/please_select"
+                    android:text="" />
+
+                <ImageView style="@style/common_arrows_right" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_10dp"
+                android:background="@color/bg_line" />
+
+            <LinearLayout
+                android:id="@+id/ll_goods_spec"
+                style="@style/common_45dp_linearLayout">
+
+                <TextView
+                    style="@style/common_select_text"
+                    android:text="商品规格(可选)" />
+
+                <TextView
+                    android:id="@+id/tv_goods_spec"
+                    style="@style/common_01color_text"
+                    android:hint="@string/please_select"
+                    android:text="" />
+
+                <ImageView style="@style/common_arrows_right" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_1px"
+                android:background="@color/bg_line" />
+
+            <LinearLayout
+                android:id="@+id/ll_transport_expense"
+                style="@style/common_45dp_linearLayout">
+
+                <TextView
+                    style="@style/common_select_text"
+                    android:background="@null"
+                    android:text="运费" />
+
+                <EditText
+                    android:id="@+id/tv_transport_expense"
+                    style="@style/common_edit"
+                    android:gravity="right|center"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:hint="请输入运费"
+                    android:text="" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¥"
+                    android:layout_marginRight="@dimen/height_15dp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/tc_black3" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_10dp"
+                android:background="@color/bg_line" />
+
+            <LinearLayout
+                android:id="@+id/ll_desc"
+                style="@style/common_45dp_linearLayout">
+
+                <TextView
+                    style="@style/common_select_text"
+                    android:text="宝贝描述" />
+
+                <TextView
+                    android:id="@+id/tv_desc"
+                    style="@style/common_01color_text"
+                    android:hint="@string/please_select"
+                    android:text="" />
+
+                <ImageView style="@style/common_arrows_right" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_10dp"
+                android:background="@color/bg_line" />
+
+            <LinearLayout
+                android:id="@+id/ll_location"
+                style="@style/common_45dp_linearLayout">
+
+                <TextView
+                    style="@style/common_select_text"
+                    android:text="发货地" />
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    style="@style/common_01color_text"
+                    android:hint="@string/please_select"
+                    android:text="" />
+
+                <ImageView style="@style/common_arrows_right" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        layout="@layout/layout_button_red"/>
+
+</LinearLayout>

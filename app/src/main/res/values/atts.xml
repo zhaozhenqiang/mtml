@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension"/>
+        <attr name="out_border_width" format="dimension"/>
+        <attr name="border_color" format="color"/>
+        <attr name="out_border_color" format="color"/>
+        <attr name="border_overlay" format="boolean"/>
+        <attr name="out_border_overlay" format="boolean"/>
+        <attr name="corner_radius" format="dimension" />
+        <attr name="corner_radius_top_left" format="dimension" />
+        <attr name="corner_radius_top_right" format="dimension" />
+        <attr name="corner_radius_bottom_left" format="dimension" />
+        <attr name="corner_radius_bottom_right" format="dimension" />
+        <attr name="mutate_background" format="boolean" />
+        <attr name="oval" format="boolean" />
+        <attr name="android:scaleType" />
+        <attr name="tile_mode">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+        <attr name="tile_mode_x">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+        <attr name="tile_mode_y">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="BaseRecyclerView">
+        <attr name="android:divider"/>
+        <attr name="android:dividerHeight"/>
+        <attr name="android:listSelector"/>
+        <attr name="recyclerStyle">
+            <enum name="list" value="0"></enum>
+            <enum name="grid" value="1"></enum>
+            <enum name="staggered_grid" value="2"></enum>
+        </attr>
+        <attr name="android:orientation"/>
+        <attr name="android:numColumns"/>
+        <attr name="android:verticalSpacing"/>
+        <attr name="android:horizontalSpacing"/>
+        <attr name="android:headerDividersEnabled"/>
+        <attr name="android:footerDividersEnabled"/>
+    </declare-styleable>
+
+    <declare-styleable name="AmountView">
+        <!-- 左右2边+-按钮的宽度 -->
+        <attr name="btnWidth" format="dimension" />
+        <!-- 中间TextView的宽度 -->
+        <attr name="tvWidth" format="dimension" />
+        <!--<attr name="tvColor" format="color"/>-->
+        <attr name="tvTextSize" format="dimension"/>
+        <attr name="btnTextSize" format="dimension"/>
+    </declare-styleable>
+
+
+    <!--TabIndicator的参数设置-->
+    <declare-styleable name="PagerSlidingTab">
+        <attr name="indicatorColor" format="color" />
+        <attr name="underlineColor" format="color" />
+        <attr name="dividerColor" format="color" />
+        <attr name="indicatorHeight" format="dimension" />
+        <attr name="underlineHeight" format="dimension" />
+        <attr name="pst_dividerPadding" format="dimension" />
+        <attr name="tabPaddingLeftRight" format="dimension" />
+        <attr name="scrollOffset" format="dimension" />
+        <attr name="tabBackgrounds" format="reference" />
+        <attr name="sameLine" format="boolean" />
+        <attr name="pst_textAllCaps" format="boolean" />
+    </declare-styleable>
+
+    <!--toggleButton-->
+    <declare-styleable name="ToggleButton">
+        <attr name="borderWidthToggleButton" format="dimension">
+        </attr>
+        <attr name="offBorderColorToggleButton" format="reference|color">
+        </attr>
+        <attr name="offColorToggleButton" format="reference|color">
+        </attr>
+        <attr name="onColorToggleButton" format="reference|color">
+        </attr>
+        <attr name="spotColorToggleButton" format="reference|color">
+        </attr>
+        <attr name="animateToggleButton" format="reference|boolean">
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="StarRatingView">
+        <!--星星点亮-->
+        <attr name="stat_on" format="reference"></attr>
+        <!--星星关闭-->
+        <attr name="stat_off" format="reference"></attr>
+        <!--半颗星星-->
+        <attr name="stat_half" format="reference"></attr>
+        <!--是否可以点击滑动评分-->
+        <attr name="ratable" format="boolean"></attr>
+        <!--星星之间间距-->
+        <attr name="star_padding" format="dimension"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="ContactItemView">
+        <attr name="contactItemImage" format="reference"/>
+        <attr name="contactItemName" format="string"/>
+    </declare-styleable>
+
+</resources>

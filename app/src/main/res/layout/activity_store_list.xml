@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_title_right_text"/>
+
+    <com.mutoumulao.expo.redwood.view.PullToRefreshView
+        android:id="@+id/pull_view"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <com.mutoumulao.expo.redwood.view.BaseRecyclerView
+            android:id="@+id/rv_store"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/bg_line"
+            android:dividerHeight="@dimen/height_1px"
+            android:listSelector="@drawable/bg_item_transparent_selector"
+            android:orientation="vertical"
+            android:scrollbars="vertical"
+            app:recyclerStyle="list"/>
+
+
+    </com.mutoumulao.expo.redwood.view.PullToRefreshView>
+
+
+    <include layout="@layout/layout_button_red"/>
+
+
+
+</LinearLayout>

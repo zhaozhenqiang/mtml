@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--订单管理 商品管理 商家信息-->
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/icon_store_title">
+
+        <RelativeLayout
+            android:id="@+id/rl_back"
+            android:layout_width="48dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/icon_left_light" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Title"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="right"
+                android:textColor="@color/tc_black3" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_activity"
+        android:padding="@dimen/height_15dp">
+
+        <LinearLayout
+            android:id="@+id/ll_merchant"
+            style="@style/common_wrap_linearLayout"
+            android:background="@drawable/icon_store_info">
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_store_info_head" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/height_15dp"
+                    android:gravity="center_vertical"
+                    android:text="厂家信息"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_16" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/height_15dp"
+                    android:layout_marginTop="@dimen/height_5dp"
+                    android:gravity="center_vertical"
+                    android:text="Manufactureinformation"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12" />
+
+
+            </LinearLayout>
+
+            <ImageView style="@style/common_arrows_right_write" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_store"
+            style="@style/common_wrap_linearLayout"
+            android:background="@drawable/icon_goods_manager">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_goods_manamger_head" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/height_15dp"
+                    android:gravity="center_vertical"
+                    android:text="商品管理"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_16" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/height_15dp"
+                    android:layout_marginTop="@dimen/height_5dp"
+                    android:gravity="center_vertical"
+                    android:text="Commoditymanagement"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12" />
+
+
+            </LinearLayout>
+
+            <ImageView style="@style/common_arrows_right_write" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_order"
+
+            style="@style/common_wrap_linearLayout"
+            android:background="@drawable/icon_sale_order">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_store_order_head" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/height_15dp"
+                    android:gravity="center_vertical"
+                    android:text="销售订单"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_16" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/height_15dp"
+                    android:layout_marginTop="@dimen/height_5dp"
+                    android:gravity="center_vertical"
+                    android:text="Ssales order"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12" />
+
+
+            </LinearLayout>
+
+            <ImageView style="@style/common_arrows_right_write" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

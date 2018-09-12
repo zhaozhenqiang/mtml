@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_right_text"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/height_10dp"
+                android:background="@null"
+                android:hint="标题"
+                android:paddingLeft="@dimen/height_15dp"
+                android:paddingRight="@dimen/text_size_15"
+                android:textSize="@dimen/text_size_14"
+                android:paddingTop="@dimen/height_10dp"
+                android:paddingBottom="@dimen/height_10dp"
+                android:textColor="@color/tc_black3"
+                android:textColorHint="@color/tc_black9" />
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/bg_line"
+                android:layout_height="@dimen/height_1px"/>
+
+
+            <EditText
+                android:id="@+id/et_remark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:paddingTop="@dimen/height_10dp"
+                android:textSize="@dimen/text_size_14"
+                android:paddingLeft="@dimen/height_15dp"
+                android:paddingRight="@dimen/text_size_15"
+                android:paddingBottom="@dimen/height_10dp"
+                android:hint="文字内容" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_photo"
+                android:paddingLeft="@dimen/height_15dp"
+                android:paddingRight="@dimen/text_size_15"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/line_color"
+                android:layout_height="@dimen/height_10dp"/>
+
+            <LinearLayout
+                android:id="@+id/ll_type_name"
+                android:visibility="gone"
+                style="@style/common_45dp_linearLayout">
+
+                <TextView
+                    style="@style/common_select_text"
+                    android:text="服务分类" />
+
+                <TextView
+                    android:id="@+id/tv_type_name"
+                    style="@style/common_01color_text"
+                    android:hint="@string/please_select"
+                    android:text="" />
+
+                <ImageView style="@style/common_arrows_right" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        layout="@layout/layout_button_red"/>
+
+</LinearLayout>

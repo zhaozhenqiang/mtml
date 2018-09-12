@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_right_text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="@dimen/height_15dp">
+
+        <ImageView
+            android:id="@+id/iv_head"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@color/bg_activity"
+            android:scaleType="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/height_10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="店铺名称"
+                android:textColor="@color/tc_black3" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_phone"
+                    android:layout_width="@dimen/height_20dp"
+                    android:background="@drawable/icon_phone"
+                    android:layout_height="@dimen/height_20dp" />
+                <TextView
+                    android:layout_toRightOf="@+id/iv_phone"
+                    android:layout_marginLeft="@dimen/height_5dp"
+                    android:id="@+id/tv_phone"
+                    android:text="00000000000"
+                    android:textColor="@color/tc_black9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_location"
+                    android:layout_width="@dimen/height_20dp"
+                    android:background="@drawable/icon_location"
+                    android:layout_height="@dimen/height_20dp" />
+                <TextView
+                    android:layout_toRightOf="@+id/iv_location"
+                    android:layout_marginLeft="@dimen/height_5dp"
+                    android:id="@+id/tv_location"
+                    android:text="00000000000"
+                    android:singleLine="true"
+                    android:textColor="@color/tc_black9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/iv_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="联系商家"
+            android:textColor="@color/tc_black3"
+            android:drawableTop="@drawable/icon_call" />
+
+    </LinearLayout>
+
+    <com.mutoumulao.expo.redwood.view.TabPageIndicator
+        android:id="@+id/pageindicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_40dp"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager_news"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+</LinearLayout>

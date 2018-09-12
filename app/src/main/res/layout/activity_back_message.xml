@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_right_text" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <EditText
+                android:id="@+id/et_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/height_15dp"
+                android:background="@drawable/shape_gray_rect"
+                android:gravity="top"
+                android:hint="请输入您的意见"
+                android:minHeight="100dp"
+                android:padding="@dimen/height_10dp"
+                android:textColor="@color/tc_black3"
+                android:textColorHint="@color/tc_black6" />
+
+            <EditText
+                android:id="@+id/et_mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/height_15dp"
+                android:layout_marginRight="@dimen/height_15dp"
+                android:background="@drawable/shape_gray_rect"
+                android:hint="请输入电子邮箱"
+                android:padding="@dimen/height_10dp"
+                android:textSize="@dimen/text_size_14" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/height_15dp"
+                android:layout_marginRight="@dimen/height_15dp"
+                android:layout_marginTop="@dimen/height_10dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/layout_button_red"/>
+</LinearLayout>

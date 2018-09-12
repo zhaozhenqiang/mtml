@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.mutoumulao.expo.redwood.view.PullToRefreshView
+        android:id="@+id/pull_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <com.mutoumulao.expo.redwood.view.BaseRecyclerView
+            android:id="@+id/rv_message"
+            android:layout_width="match_parent"
+            android:divider="@color/bg_line"
+            android:dividerHeight="@dimen/height_1px"
+            android:listSelector="@drawable/bg_item_transparent_selector"
+            android:layout_height="match_parent" />
+
+    </com.mutoumulao.expo.redwood.view.PullToRefreshView>
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btn_go"
+        android:layout_width="match_parent"
+        android:background="@color/tc_red"
+        android:textSize="@dimen/text_size_16"
+        android:text="登 录"
+        android:layout_marginTop="@dimen/height_30dp"
+        android:textColor="@color/tc_write"
+        android:layout_height="@dimen/height_44dp" />
+
+</RelativeLayout>

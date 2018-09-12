@@ -1,0 +1,126 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/tc_write</item>
+        <item name="colorPrimaryDark">@color/bc_title</item>
+        <item name="colorPrimary">@color/bc_title</item>
+        <item name="editTextStyle">@style/EditTextStyle</item>
+    </style>
+
+
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+        <item name="android:windowBackground">@color/bg_activity</item>
+        <item name="android:buttonStyle">?android:attr/borderlessButtonStyle</item>
+    </style>
+
+    <style name="AnimationActivity" mce_bogus="1" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@null</item>
+        <item name="android:windowExitAnimation">@null</item>
+        <item name="android:activityOpenEnterAnimation">@anim/push_left_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/push_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/push_right_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/push_right_out</item>
+    </style>
+
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:textColorHint">@color/tc_black9</item>
+        <item name="android:textColor">@color/tc_black3</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+
+
+    <style name="FullScreenDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+    <!-- 通用45dp 白底 条目线性布局 主要用于申请部分的条目选择-->
+    <style name="common_45dp_linearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/height_45dp</item>
+        <item name="android:background">@drawable/layout_bg_selector</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!-- 商品管理45dp 白底 条目线性布局 主要用于申请部分的条目选择-->
+    <style name="common_wrap_linearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/height_15dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!-- 通用45dp #111 文字 主要用于选择文字-->
+    <style name="common_select_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">@dimen/height_15dp</item>
+        <item name="android:textColor">@color/tc_black3</item>
+        <item name="android:textColorHint">@color/tc_black9</item>
+    </style>
+
+    <!-- 通用45dp #111 文字 主要用于的显示文字-->
+    <style name="common_01color_text">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:textColor">@color/tc_black3</item>
+    </style>
+
+    <!-- 通用向右箭头 主要用于选择性条目的装饰-->
+    <style name="common_arrows_right">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:layout_marginRight">@dimen/height_15dp</item>
+        <item name="android:src">@drawable/icon_right</item>
+    </style>
+
+    <!-- 通用向右箭头 主要用于选择性条目的装饰-->
+    <style name="common_arrows_right_write">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:layout_marginRight">@dimen/height_15dp</item>
+        <item name="android:src">@drawable/icon_right_light</item>
+    </style>
+
+    <color name="tram">#fff</color>
+    <style name="dialog_style" parent="android:Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/tram</item>
+        <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/abc_slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/abc_slide_out_bottom</item>
+    </style>
+
+    <style name="common_edit">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingRight">@dimen/height_15dp</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:background">@null</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/height_15dp</item>
+        <item name="android:textColor">@color/tc_black3</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+</resources>

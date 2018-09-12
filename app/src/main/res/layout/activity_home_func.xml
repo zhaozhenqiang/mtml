@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/bc_title"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/rl_back"
+            android:layout_width="48dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/icon_left" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_marginRight="@dimen/height_25dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_edit_fill">
+
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:background="@null"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:inputType="text"
+                android:hint="@string/please_input"
+                android:paddingLeft="@dimen/height_10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_marginRight="@dimen/height_15dp"
+                android:background="@drawable/icon_search"
+                android:layout_alignParentRight="true"
+                android:layout_height="25dp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <com.mutoumulao.expo.redwood.view.PullToRefreshView
+        android:id="@+id/pull_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.mutoumulao.expo.redwood.view.BaseRecyclerView
+            android:id="@+id/rv_func"
+            android:dividerHeight="@dimen/height_5dp"
+            android:divider="@color/bc_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.mutoumulao.expo.redwood.view.PullToRefreshView>
+
+</LinearLayout>

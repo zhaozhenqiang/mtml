@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:paddingTop="@dimen/height_15dp"
+        android:paddingBottom="@dimen/height_15dp"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+
+        <com.mutoumulao.expo.redwood.view.CircleImageView
+            android:id="@+id/iv_author_head"
+            android:layout_width="36dp"
+            android:scaleType="centerCrop"
+            android:layout_height="36dp" />
+
+        <TextView
+            android:id="@+id/tv_author_name"
+            android:layout_toRightOf="@+id/iv_author_head"
+            android:layout_marginLeft="@dimen/height_10dp"
+            android:layout_width="match_parent"
+            android:text=""
+            android:textSize="@dimen/text_size_12"
+            android:textColor="@color/tc_black3"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_toRightOf="@+id/iv_author_head"
+            android:layout_below="@+id/tv_author_name"
+            android:layout_marginTop="@dimen/height_5dp"
+            android:layout_marginLeft="@dimen/height_10dp"
+            android:layout_width="match_parent"
+            android:text=""
+            android:textSize="@dimen/text_size_12"
+            android:textColor="@color/tc_black6"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_marginTop="@dimen/height_10dp"
+        android:layout_width="match_parent"
+        android:textColor="@color/tc_black3"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

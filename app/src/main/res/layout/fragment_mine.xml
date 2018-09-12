@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bc_mine_fragment"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/height_15dp">
+
+                <com.mutoumulao.expo.redwood.view.CircleImageView
+                    android:id="@+id/iv_head"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp" />
+
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/height_15dp"
+                    android:layout_toRightOf="@+id/iv_head"
+                    android:text="剁手狂魔"
+                    android:textColor="@color/tc_write" />
+
+                <ImageView
+                    android:id="@+id/iv_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_setting" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_all_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_black_fill"
+                android:layout_marginLeft="@dimen/height_15dp"
+                android:text="全部订单"
+                android:paddingLeft="@dimen/height_5dp"
+                android:paddingRight="@dimen/height_5dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:textColor="@color/tc_write" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/height_15dp"
+                android:paddingTop="@dimen/height_15dp">
+
+                <TextView
+                    android:id="@+id/tv_unpay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/height_10dp"
+                    android:drawableTop="@drawable/icon_unpay"
+                    android:gravity="center"
+                    android:text="待付款"
+                    android:textColor="@color/tc_write"
+                    android:textSize="@dimen/text_size_12" />
+
+                <TextView
+                    android:id="@+id/tv_undeliver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/height_10dp"
+                    android:drawableTop="@drawable/icon_undeliver"
+                    android:gravity="center"
+                    android:text="待发货"
+                    android:textColor="@color/tc_write"
+                    android:textSize="@dimen/text_size_12" />
+
+                <TextView
+                    android:id="@+id/tv_delivering"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/height_10dp"
+                    android:drawableTop="@drawable/icon_delivering"
+                    android:gravity="center"
+                    android:text="已发货"
+                    android:textColor="@color/tc_write"
+                    android:textSize="@dimen/text_size_12" />
+
+                <TextView
+                    android:id="@+id/tv_evaluate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/height_10dp"
+                    android:drawableTop="@drawable/icon_evaluate"
+                    android:gravity="center"
+                    android:text="待评价"
+                    android:textColor="@color/tc_write"
+                    android:textSize="@dimen/text_size_12" />
+
+
+                <TextView
+                    android:id="@+id/tv_after_sale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/height_10dp"
+                    android:drawableTop="@drawable/icon_after_sale"
+                    android:gravity="center"
+                    android:text="退款/售后"
+                    android:textColor="@color/tc_write"
+                    android:textSize="@dimen/text_size_12" />
+
+
+            </LinearLayout>
+
+            <com.mutoumulao.expo.redwood.view.BaseRecyclerView
+                android:id="@+id/rv_fun"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/tc_write"
+                android:numColumns="3"
+                app:recyclerStyle="grid" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

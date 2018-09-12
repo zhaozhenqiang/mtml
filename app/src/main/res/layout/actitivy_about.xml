@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_right_text"/>
+
+    <RelativeLayout
+        android:paddingTop="@dimen/height_20dp"
+        android:paddingBottom="@dimen/height_10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="160dp"
+            android:layout_height="74dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon_logo" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:text="
+     木头木佬红木商城由抚州市东乡区老表科技有限公司于2017年5月创建。通过丰富的红木厂家资源，优质的红木商品和先进的互联网技术为客户提供最好的服务。\n     木头木佬始终坚持以用户为中心，对产品的迭代和红木商品的质量保持严谨态度。致力于为用户打造最优质的红木商城交易平台，努力提供丰富的红木商品、资讯和完善的售后服务。"
+        android:textColor="@color/tc_black3"
+        android:textSize="@dimen/text_size_16"
+        android:paddingLeft="@dimen/height_15dp"
+        android:paddingRight="@dimen/height_15dp"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:text="@string/app_name"
+        android:gravity="center"
+        android:textColor="@color/tc_black3"
+        android:textSize="@dimen/text_size_16"
+        android:layout_marginTop="@dimen/height_15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="match_parent"
+        android:textColor="@color/tc_black3"
+        android:layout_marginTop="@dimen/height_15dp"
+        android:textSize="@dimen/text_size_16"
+        android:gravity="center_horizontal"
+        android:text="V1.0"
+        android:layout_marginBottom="@dimen/height_15dp"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Copyright @2018木头木佬"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/height_15dp"
+        android:textSize="@dimen/text_size_12"
+        android:textColor="@color/tc_black3"
+        android:layout_height="wrap_content" />
+</LinearLayout>

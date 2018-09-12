@@ -1,0 +1,92 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.mutoumulao.expo.redwood"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 24
+        versionName "1.2.4"
+        testInstrumentationRunner "android.support.GoodsDetialEntity.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('redwood_keystore.jks')
+            storePassword 'mutoumulao'
+            keyAlias 'chips'
+            keyPassword 'mutoumulao'
+        }
+        debug {
+            storeFile file('redwood_keystore.jks')
+            storePassword 'mutoumulao'
+            keyAlias 'chips'
+            keyPassword 'mutoumulao'
+        }
+    }
+
+    buildTypes {
+
+        debug {
+            buildConfigField "String", "BUILD_DATE", "\"" + new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\""
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "String", "SERVER_IP", "\"http://mutoumulao.com:8888/api\""
+            buildConfigField "String", "IMAGE_IP", "\"http://mutoumulao.com:8888\""
+            buildConfigField "String", "RSA_PRIVATE", "\"MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCaR2byBg1CwnqppChpsQ7nxHfS7cqoaxUwqzbkLGH7C+GKtyE5n+R0SIYPMN5eisL0hQ+w7GYTHrrprCHFFNm6ipXpzptTfP0Q59ziXUpPwbx+uduljwQ7PHxOlFmzu3sqZkLyUVQAVKu0b3urc7ygSwFa63lQK9UpZ8RxNMSiK0g+p3bGtXd9b5jBw00UpkI4cElJc6bPReU0HRHVa0SmrF3xRAXIRCZboMLDzhPssSnFYjpvBKd36oZ2DULGbSE7n/ChjM4Q/qKL5bAXl6Bi3QovwDZ2Z+Nqywpa+X6N23WabPVAy7ce+Sc8egy5QHMIW+eEJ5rwrQ2gDwE4hZNFAgMBAAECggEABNva0iR+pmuZkV4qJ6n73jDB1VLH3yYANNgvkmATdeSZ5dR+p2Hxv/fIwRG47yFPooPOSrQnQtLk8BcLuTk+4jEbJ5HqMmbtUWr7+eUWQgzH8vXHhR9L8tGk2JSzfoWZC2zNDvSgwKHqBnS8YFn0xteV41cnKu82d2ddOHOA/dpyhf/lBkfN9Oa76J3X9/fUZzSvQNXETPmRcmftf6eazOKGCXHGwzsPFn13wr/BZKFSugWKkZbkTyz1u7dAbc7xcayR1l+GFo8NSWo+SyR6Ebof3sx4nk4Eno9BY6yko8rSJ16gwBLbHmoF7v3cYUcOx/0d/34snkbWW9TpaUuoAQKBgQDckqiKeQbUyPvely7vLujuvFNUdITa+XgZcKarIuStKLXonZYAcPT8Ko59fJPyJ7U+Tc8I8JbM8DkA8k4GNApckBBE4tKyoj+TspEulbY2AEjcQWw1eY5bYGcu3wR6waysG9XhGPQZvWJXTco523I41z5xI7KmCBkPxFua2juLJQKBgQCzDuux/LYMSrElaN+0fpIeBeaS6Ce1qmjISzrgy7D0NN5ILv1gAb/+VzQ5WCfB+D567Z6H7WE3DH9M32hlnl7kWHVv2FtKTltbMbLOPBRdtWhSh5aOiO0DgPqvdj9k++CnfII6BaiVSSMsFef2sbhj/ArcAa0BQXOqLabXtPp9oQKBgQCN3UnHXhX1r5rHTEdkkLBCNCAIVrTIPeFvw1N/CH85m9B73zcF66C1uw1QSlrBSaa5fsPlBRCImQygvjdOqBPt+r5r/9LyD4aCkTvtUV8TFlXGS9G0Bw13Weajb87qwTw0qeaC01DUaUkhy6eAVNL/GflQPVx+iwDLckhUrX3UfQKBgBLV6PlKKiRU3xmeVJn6DojV+hFOFo9Ho8oeD82B39VwkklpmAG3bWjl53p4yYXgBUKNKHYIBIfz6pg9kA/Qfw7qN0BStBe28mk/ax3CuCm7YYP8+1t3D+ekc7ptZ/HJhTJZKKHN4pQBo4+JpmMPAuSRqNrH2lkdd3tZXgmm4grBAoGAGOMDKwpvGvNSxicno0tTYLBHXrjsyyERvSBt0yD61sTgiMEMN/tN2pLNqDjpDId5cSr3nWIb6iLSpmxx+iomc9mcbOphzkh/vV15J7SRZmUPexVrmeNJFQ7ZDXsRmphwT+i45GS0SC4kaNnlNsfdEsWpv5ra+DzW5ErOmc52jcI=\""
+            signingConfig signingConfigs.debug
+
+            minifyEnabled false
+            manifestPlaceholders = [
+                    UMENG_APPKEY_VALUE : "5b7b869bf29d981e100001ae",
+                    TENCENT : "1106820382"
+            ]
+        }
+
+        release {
+
+            buildConfigField "String", "BUILD_DATE", "\"" + new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\""
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "String", "SERVER_IP", "\"http://mutoumulao.com:8888/api\""
+            buildConfigField "String", "IMAGE_IP", "\"http://mutoumulao.com:8888\""
+            buildConfigField "String", "RSA_PRIVATE", "\"MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCaR2byBg1CwnqppChpsQ7nxHfS7cqoaxUwqzbkLGH7C+GKtyE5n+R0SIYPMN5eisL0hQ+w7GYTHrrprCHFFNm6ipXpzptTfP0Q59ziXUpPwbx+uduljwQ7PHxOlFmzu3sqZkLyUVQAVKu0b3urc7ygSwFa63lQK9UpZ8RxNMSiK0g+p3bGtXd9b5jBw00UpkI4cElJc6bPReU0HRHVa0SmrF3xRAXIRCZboMLDzhPssSnFYjpvBKd36oZ2DULGbSE7n/ChjM4Q/qKL5bAXl6Bi3QovwDZ2Z+Nqywpa+X6N23WabPVAy7ce+Sc8egy5QHMIW+eEJ5rwrQ2gDwE4hZNFAgMBAAECggEABNva0iR+pmuZkV4qJ6n73jDB1VLH3yYANNgvkmATdeSZ5dR+p2Hxv/fIwRG47yFPooPOSrQnQtLk8BcLuTk+4jEbJ5HqMmbtUWr7+eUWQgzH8vXHhR9L8tGk2JSzfoWZC2zNDvSgwKHqBnS8YFn0xteV41cnKu82d2ddOHOA/dpyhf/lBkfN9Oa76J3X9/fUZzSvQNXETPmRcmftf6eazOKGCXHGwzsPFn13wr/BZKFSugWKkZbkTyz1u7dAbc7xcayR1l+GFo8NSWo+SyR6Ebof3sx4nk4Eno9BY6yko8rSJ16gwBLbHmoF7v3cYUcOx/0d/34snkbWW9TpaUuoAQKBgQDckqiKeQbUyPvely7vLujuvFNUdITa+XgZcKarIuStKLXonZYAcPT8Ko59fJPyJ7U+Tc8I8JbM8DkA8k4GNApckBBE4tKyoj+TspEulbY2AEjcQWw1eY5bYGcu3wR6waysG9XhGPQZvWJXTco523I41z5xI7KmCBkPxFua2juLJQKBgQCzDuux/LYMSrElaN+0fpIeBeaS6Ce1qmjISzrgy7D0NN5ILv1gAb/+VzQ5WCfB+D567Z6H7WE3DH9M32hlnl7kWHVv2FtKTltbMbLOPBRdtWhSh5aOiO0DgPqvdj9k++CnfII6BaiVSSMsFef2sbhj/ArcAa0BQXOqLabXtPp9oQKBgQCN3UnHXhX1r5rHTEdkkLBCNCAIVrTIPeFvw1N/CH85m9B73zcF66C1uw1QSlrBSaa5fsPlBRCImQygvjdOqBPt+r5r/9LyD4aCkTvtUV8TFlXGS9G0Bw13Weajb87qwTw0qeaC01DUaUkhy6eAVNL/GflQPVx+iwDLckhUrX3UfQKBgBLV6PlKKiRU3xmeVJn6DojV+hFOFo9Ho8oeD82B39VwkklpmAG3bWjl53p4yYXgBUKNKHYIBIfz6pg9kA/Qfw7qN0BStBe28mk/ax3CuCm7YYP8+1t3D+ekc7ptZ/HJhTJZKKHN4pQBo4+JpmMPAuSRqNrH2lkdd3tZXgmm4grBAoGAGOMDKwpvGvNSxicno0tTYLBHXrjsyyERvSBt0yD61sTgiMEMN/tN2pLNqDjpDId5cSr3nWIb6iLSpmxx+iomc9mcbOphzkh/vV15J7SRZmUPexVrmeNJFQ7ZDXsRmphwT+i45GS0SC4kaNnlNsfdEsWpv5ra+DzW5ErOmc52jcI=\""
+            signingConfig signingConfigs.release
+            manifestPlaceholders = [
+                    UMENG_APPKEY_VALUE : "5b7b869bf29d981e100001ae",
+                    TENCENT : "1106820382"
+            ]
+
+            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    androidTestCompile('com.android.support:support-annotations:26.1.0') {
+        force = true
+    }
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.android.support:multidex:1.0.2'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    implementation 'com.alibaba:fastjson:1.2.5'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation project(':picture_library')
+    implementation project(':ucrop')
+    implementation 'com.contrarywind:Android-PickerView:3.2.5'
+    implementation 'com.google.code.gson:gson:2.7'
+    implementation 'com.youth.banner:banner:1.4.9'
+    implementation 'com.facebook.rebound:rebound:0.3.8'
+    implementation project(':easeui')
+    implementation 'com.parse:parse-android:1.13.1'
+}
