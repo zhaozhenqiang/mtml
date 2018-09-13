@@ -85,12 +85,27 @@
                 android:paddingLeft="@dimen/height_15dp"
                 android:paddingRight="@dimen/height_15dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_44dp"
-                    android:gravity="center_vertical"
-                    android:text="价格/库存"
-                    android:textColor="@color/tc_black3" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height_44dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="价格/库存"
+                        android:textColor="@color/tc_black3" />
+
+                    <TextView
+                        android:id="@+id/tv_together"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height_44dp"
+                        android:gravity="center_vertical"
+                        android:text="批量设置"
+                        android:textColor="@color/tc_black3" />
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -100,6 +115,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/S"
+                    android:paddingTop="@dimen/S"
                     android:text="您需要选择相应的销售属性，才能组合完整的规格信息"
                     android:textColor="@color/tc_black9" />
 
