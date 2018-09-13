@@ -52,6 +52,8 @@
         android:layout_marginLeft="@dimen/height_15dp"
         android:background="@drawable/shape_gray_rect"
         android:gravity="center"
+        android:singleLine="true"
+        android:inputType="text"
         android:imeOptions="actionDone"
         android:hint="请输入"/>
 </RelativeLayout>

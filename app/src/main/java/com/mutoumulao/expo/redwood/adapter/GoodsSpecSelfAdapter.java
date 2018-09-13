@@ -17,6 +17,7 @@ import com.mutoumulao.expo.redwood.R;
 import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecylerReduceItemListener;
 import com.mutoumulao.expo.redwood.util.UIUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ import java.util.List;
 
 public class GoodsSpecSelfAdapter extends RecyclerView.Adapter<GoodsSpecSelfAdapter.GoodsSpecTypeViewHolder> {
     private final Context mContext;
-    private final List<String> getItem;
+    private List<String> getItem;
     //    private final List<List<String>> getItem;
     protected LayoutInflater mInflater;
     private int mPosition;
@@ -75,6 +76,8 @@ public class GoodsSpecSelfAdapter extends RecyclerView.Adapter<GoodsSpecSelfAdap
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     String size = holder.mEt.getText().toString().trim();
                     if (!TextUtils.isEmpty(size)) {
+                        if(getItem==null)
+                            getItem = new ArrayList<>();
                         getItem.add(size);
                         notifyDataSetChanged();
                     } else {
