@@ -32,7 +32,7 @@ import butterknife.OnClick;
  * Created by lzy on 2018/8/4.
  */
 
-public class GoodsSpecActicity extends BaseActivity {
+public class GoodsSpecActicityOld extends BaseActivity {
     @BindView(R.id.rl_back)
     RelativeLayout mRlBack;
     @BindView(R.id.tv_title)
@@ -79,7 +79,7 @@ public class GoodsSpecActicity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_goods_spec);
+        setContentView(R.layout.activity_goods_spec_old);
         ButterKnife.bind(this);
         initView();
     }

@@ -18,7 +18,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:visibility="gone"
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/height_15dp"
                 android:paddingRight="@dimen/height_15dp">
@@ -67,20 +66,10 @@
                 android:layout_height="@dimen/height_10dp"
                 android:background="@color/bg_line"
                 android:visibility="gone" />
-            <TextView
-                android:id="@+id/tv_type"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_44dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="吨位"
-                android:textColor="@color/tc_black3" />
+
+
             <com.mutoumulao.expo.redwood.view.BaseRecyclerView
-                android:id="@+id/rv_spec_user"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-            <com.mutoumulao.expo.redwood.view.BaseRecyclerView
-                android:id="@+id/rv_spec_common"
+                android:id="@+id/rv_spec"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
