@@ -11,7 +11,6 @@ android {
         testInstrumentationRunner "android.support.GoodsDetialEntity.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
-
     signingConfigs {
         release {
             storeFile file('redwood_keystore.jks')
@@ -26,7 +25,6 @@ android {
             keyPassword 'mutoumulao'
         }
     }
-
     buildTypes {
 
         debug {
@@ -39,8 +37,8 @@ android {
 
             minifyEnabled false
             manifestPlaceholders = [
-                    UMENG_APPKEY_VALUE : "5b7b869bf29d981e100001ae",
-                    TENCENT : "1106820382"
+                    UMENG_APPKEY_VALUE: "5b7b869bf29d981e100001ae",
+                    TENCENT           : "1106820382"
             ]
         }
 
@@ -53,14 +51,15 @@ android {
             buildConfigField "String", "RSA_PRIVATE", "\"MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCaR2byBg1CwnqppChpsQ7nxHfS7cqoaxUwqzbkLGH7C+GKtyE5n+R0SIYPMN5eisL0hQ+w7GYTHrrprCHFFNm6ipXpzptTfP0Q59ziXUpPwbx+uduljwQ7PHxOlFmzu3sqZkLyUVQAVKu0b3urc7ygSwFa63lQK9UpZ8RxNMSiK0g+p3bGtXd9b5jBw00UpkI4cElJc6bPReU0HRHVa0SmrF3xRAXIRCZboMLDzhPssSnFYjpvBKd36oZ2DULGbSE7n/ChjM4Q/qKL5bAXl6Bi3QovwDZ2Z+Nqywpa+X6N23WabPVAy7ce+Sc8egy5QHMIW+eEJ5rwrQ2gDwE4hZNFAgMBAAECggEABNva0iR+pmuZkV4qJ6n73jDB1VLH3yYANNgvkmATdeSZ5dR+p2Hxv/fIwRG47yFPooPOSrQnQtLk8BcLuTk+4jEbJ5HqMmbtUWr7+eUWQgzH8vXHhR9L8tGk2JSzfoWZC2zNDvSgwKHqBnS8YFn0xteV41cnKu82d2ddOHOA/dpyhf/lBkfN9Oa76J3X9/fUZzSvQNXETPmRcmftf6eazOKGCXHGwzsPFn13wr/BZKFSugWKkZbkTyz1u7dAbc7xcayR1l+GFo8NSWo+SyR6Ebof3sx4nk4Eno9BY6yko8rSJ16gwBLbHmoF7v3cYUcOx/0d/34snkbWW9TpaUuoAQKBgQDckqiKeQbUyPvely7vLujuvFNUdITa+XgZcKarIuStKLXonZYAcPT8Ko59fJPyJ7U+Tc8I8JbM8DkA8k4GNApckBBE4tKyoj+TspEulbY2AEjcQWw1eY5bYGcu3wR6waysG9XhGPQZvWJXTco523I41z5xI7KmCBkPxFua2juLJQKBgQCzDuux/LYMSrElaN+0fpIeBeaS6Ce1qmjISzrgy7D0NN5ILv1gAb/+VzQ5WCfB+D567Z6H7WE3DH9M32hlnl7kWHVv2FtKTltbMbLOPBRdtWhSh5aOiO0DgPqvdj9k++CnfII6BaiVSSMsFef2sbhj/ArcAa0BQXOqLabXtPp9oQKBgQCN3UnHXhX1r5rHTEdkkLBCNCAIVrTIPeFvw1N/CH85m9B73zcF66C1uw1QSlrBSaa5fsPlBRCImQygvjdOqBPt+r5r/9LyD4aCkTvtUV8TFlXGS9G0Bw13Weajb87qwTw0qeaC01DUaUkhy6eAVNL/GflQPVx+iwDLckhUrX3UfQKBgBLV6PlKKiRU3xmeVJn6DojV+hFOFo9Ho8oeD82B39VwkklpmAG3bWjl53p4yYXgBUKNKHYIBIfz6pg9kA/Qfw7qN0BStBe28mk/ax3CuCm7YYP8+1t3D+ekc7ptZ/HJhTJZKKHN4pQBo4+JpmMPAuSRqNrH2lkdd3tZXgmm4grBAoGAGOMDKwpvGvNSxicno0tTYLBHXrjsyyERvSBt0yD61sTgiMEMN/tN2pLNqDjpDId5cSr3nWIb6iLSpmxx+iomc9mcbOphzkh/vV15J7SRZmUPexVrmeNJFQ7ZDXsRmphwT+i45GS0SC4kaNnlNsfdEsWpv5ra+DzW5ErOmc52jcI=\""
             signingConfig signingConfigs.release
             manifestPlaceholders = [
-                    UMENG_APPKEY_VALUE : "5b7b869bf29d981e100001ae",
-                    TENCENT : "1106820382"
+                    UMENG_APPKEY_VALUE: "5b7b869bf29d981e100001ae",
+                    TENCENT           : "1106820382"
             ]
 
             minifyEnabled false
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '26.0.2'
 }
 
 dependencies {
