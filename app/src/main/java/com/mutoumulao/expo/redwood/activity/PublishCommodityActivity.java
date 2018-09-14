@@ -104,6 +104,16 @@ public class PublishCommodityActivity extends BaseActivity {
     @BindView(R.id.btn_go)
     Button mBtnGo;
 
+    @BindView(R.id.ll_price)
+    View mLlPrice;
+    @BindView(R.id.ll_number)
+    View mLlNumber;
+    @BindView(R.id.et_number)
+    EditText mEtNumber;
+    @BindView(R.id.et_price)
+    EditText mEtPrice;
+
+
 
     private List<LocalMedia> selectList = new ArrayList<>();
     private GridImageAdapter mAdapter;
@@ -397,8 +407,12 @@ public class PublishCommodityActivity extends BaseActivity {
                 if (desc != null) {
                     this.desc = desc;
                     mTvDesc.setText("已填写");
+                    mLlPrice.setVisibility(View.GONE);
+                    mLlNumber.setVisibility(View.GONE);
                 }else {
                     mTvDesc.setHint("未填写");
+                    mLlNumber.setVisibility(View.VISIBLE);
+                    mLlPrice.setVisibility(View.VISIBLE);
                 }
                 if (image_desc != null) {
                     desc_image.clear();

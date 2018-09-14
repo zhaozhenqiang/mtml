@@ -103,7 +103,7 @@
                     android:text="价格" />
 
                 <EditText
-                    android:id="@+id/tv_price"
+                    android:id="@+id/et_price"
                     style="@style/common_edit"
                     android:gravity="right|center"
                     android:layout_weight="1"
@@ -137,7 +137,7 @@
                     android:text="库存" />
 
                 <EditText
-                    android:id="@+id/tv_number"
+                    android:id="@+id/et_number"
                     style="@style/common_edit"
                     android:gravity="right|center"
                     android:layout_weight="1"

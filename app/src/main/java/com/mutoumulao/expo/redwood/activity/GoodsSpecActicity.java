@@ -17,7 +17,8 @@ import com.mutoumulao.expo.redwood.adapter.GoodsSpecSelfAdapter;
 import com.mutoumulao.expo.redwood.adapter.GoodsSpecTypeNumberAdapter;
 import com.mutoumulao.expo.redwood.base.BaseActivity;
 import com.mutoumulao.expo.redwood.entity.StoreManagerListEntity;
-import com.mutoumulao.expo.redwood.entity.custom_interface.RecyclerViewAddItemListener;
+import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecyclerReduceItemListener;
+import com.mutoumulao.expo.redwood.entity.custom_interface.RecyclerViewAddOneListener;
 import com.mutoumulao.expo.redwood.util.UIUtil;
 import com.mutoumulao.expo.redwood.view.BaseRecyclerView;
 
@@ -56,10 +57,11 @@ public class GoodsSpecActicity extends BaseActivity {
     @BindView(R.id.rv_spec_common)
     BaseRecyclerView mRvComment;
 
+
     private List<StoreManagerListEntity.GuigesEntity> mSpecNameSelfList = new ArrayList<>();
     private List<StoreManagerListEntity.GuigesEntity> mSpecNameCommonList = new ArrayList<>();
     private List<StoreManagerListEntity.SkuListEntity> mSpecPriceList = new ArrayList<>();
-    private GoodsSpecSelfAdapter goodsSpecSelfAdapter;
+    private GoodsSpecSelfAdapter mSelfAdapter;
     private GoodsSpecTypeNumberAdapter mNumberAdapter;
 
     GoodsSpecCommonAdapter mCommonAdapter;
@@ -82,16 +84,30 @@ public class GoodsSpecActicity extends BaseActivity {
         mTvTitle.setText("商品规格");
         mRlRight.setVisibility(View.VISIBLE);
         mTvRight.setText("完成");
-        goodsSpecSelfAdapter = new GoodsSpecSelfAdapter(this, mSpecNameSelfList);
-        mRvSpec.setAdapter(goodsSpecSelfAdapter);
+        mSelfAdapter = new GoodsSpecSelfAdapter(this, mSpecNameSelfList);
+        mRvSpec.setAdapter(mSelfAdapter);
 
         mNumberAdapter = new GoodsSpecTypeNumberAdapter(this, mSpecPriceList);
         mRvPrice.setAdapter(mNumberAdapter);
         mRvPrice.setNestedScrollingEnabled(false);
-        goodsSpecSelfAdapter.setAddItem(new RecyclerViewAddItemListener() {
+        mSelfAdapter.setOnItemDeleteListener(new ImageRecyclerReduceItemListener() {
             @Override
-            public void onAddItemListener(List<String> entity, int position) {
-                mSpecPriceList.clear();
+            public void onReduceItemListener(int position) {
+                if(mSpecNameSelfList!=null&&mSpecNameSelfList.size()>position)
+                    mSpecNameSelfList.remove(position);
+                mSelfAdapter.notifyDataSetChanged();
+            }
+        });
+        mSelfAdapter.setAddItem(new RecyclerViewAddOneListener() {
+            @Override
+            public void onAddItemListener(String entity, int position) {
+                StoreManagerListEntity.GuigesEntity bean = new StoreManagerListEntity.GuigesEntity();
+                bean.title = entity;
+                bean.selfFlag = true;
+                mSpecNameSelfList.add(bean);
+                mSelfAdapter.notifyDataSetChanged();
+
+/*                mSpecPriceList.clear();
                 String sku_name = "";
                 for (int i = 0; mSpecNameSelfList!=null&&i < mSpecNameSelfList.size(); i++) {
                     if (i < mSpecNameSelfList.size() - 1) {
@@ -101,14 +117,12 @@ public class GoodsSpecActicity extends BaseActivity {
                     }
                 }
                 if (entity != null) {
-                    for (int i = 0; i < entity.size(); i++) {
-                        StoreManagerListEntity.SkuListEntity serverEntity = new StoreManagerListEntity.SkuListEntity();
-                        serverEntity.spec = entity.get(i);
-                        serverEntity.sku_name = sku_name;
-                        mSpecPriceList.add(serverEntity);
-                    }
+                    StoreManagerListEntity.SkuListEntity serverEntity = new StoreManagerListEntity.SkuListEntity();
+                    serverEntity.spec = entity;
+                    serverEntity.sku_name = sku_name;
+                    mSpecPriceList.add(serverEntity);
                 }
-                mNumberAdapter.notifyDataSetChanged();
+                mNumberAdapter.notifyDataSetChanged();*/
             }
         });
 
@@ -134,7 +148,7 @@ public class GoodsSpecActicity extends BaseActivity {
                 }
                 mSpecNameSelfList.add(entity);
             }
-            goodsSpecSelfAdapter.notifyDataSetChanged();
+            mSelfAdapter.notifyDataSetChanged();
             */
         }
 
@@ -194,7 +208,7 @@ public class GoodsSpecActicity extends BaseActivity {
             StoreManagerListEntity.GuigesEntity entity = new StoreManagerListEntity.GuigesEntity();
             entity.title = name;
             mSpecNameSelfList.add(entity);
-            goodsSpecSelfAdapter.notifyDataSetChanged();
+            mSelfAdapter.notifyDataSetChanged();
             mEtName.setText("");
             ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(
                     this.getCurrentFocus().getWindowToken(),
