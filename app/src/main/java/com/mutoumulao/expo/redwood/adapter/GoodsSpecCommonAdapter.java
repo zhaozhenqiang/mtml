@@ -30,8 +30,8 @@ public class GoodsSpecCommonAdapter extends RecyclerView.Adapter<GoodsSpecCommon
     @"适用年龄",@"功效",@"品类",@"时间"
     * */
 
-    private String[] typeArray1 = {"18", "19", "20", "21", "22", "23", "24", "25", "26","27","28"};
-    private String[] typeArray2 = {"尺寸", "材质", "型号", "颜色", "款式",
+    private String[] typeArray2 = {"18", "19", "20", "21", "22", "23", "24", "25", "26","27","28"};
+    private String[] typeArray1 = {"尺寸", "材质", "型号", "颜色", "款式",
             "器型", "口味", "色号", "适用人群", "容量",
             "花型", "尺码", "地点", "香型", "货号",
             "组合", "成份", "版本", "度数", "运营商",
