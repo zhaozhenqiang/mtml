@@ -34,7 +34,7 @@ import butterknife.OnClick;
  * Created by lzy on 2018/8/4.
  */
 
-public class GoodsSpecActicity extends BaseActivity {
+public class GoodsSpecActivity extends BaseActivity {
     @BindView(R.id.rl_back)
     RelativeLayout mRlBack;
     @BindView(R.id.tv_title)
