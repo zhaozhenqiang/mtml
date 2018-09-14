@@ -57,7 +57,12 @@ public class GoodsSpecActicity extends BaseActivity {
     @BindView(R.id.rv_spec_common)
     BaseRecyclerView mRvComment;
 
-
+    private String[] typeArray1 = {"尺寸", "材质", "型号", "颜色", "款式",
+            "器型", "口味", "色号", "适用人群", "容量",
+            "花型", "尺码", "地点", "香型", "货号",
+            "组合", "成份", "版本", "度数", "运营商",
+            "属性", "重量", "地区", "套餐", "类别",
+            "适用年龄", "功效", "品类", "时间"};
     private List<StoreManagerListEntity.GuigesEntity> mSpecNameSelfList = new ArrayList<>();
     private List<StoreManagerListEntity.GuigesEntity> mSpecNameCommonList = new ArrayList<>();
     private List<StoreManagerListEntity.SkuListEntity> mSpecPriceList = new ArrayList<>();
@@ -96,6 +101,7 @@ public class GoodsSpecActicity extends BaseActivity {
                 if(mSpecNameSelfList!=null&&mSpecNameSelfList.size()>position)
                     mSpecNameSelfList.remove(position);
                 mSelfAdapter.notifyDataSetChanged();
+                initPriceAndNumber();
             }
         });
         mSelfAdapter.setAddItem(new RecyclerViewAddOneListener() {
@@ -107,24 +113,33 @@ public class GoodsSpecActicity extends BaseActivity {
                 mSpecNameSelfList.add(bean);
                 mSelfAdapter.notifyDataSetChanged();
 
-/*                mSpecPriceList.clear();
-                String sku_name = "";
-                for (int i = 0; mSpecNameSelfList!=null&&i < mSpecNameSelfList.size(); i++) {
-                    if (i < mSpecNameSelfList.size() - 1) {
-                        sku_name = sku_name + mSpecNameSelfList.get(i).title + ",";
-                    } else {
-                        sku_name = sku_name + mSpecNameSelfList.get(i).title;
-                    }
-                }
-                if (entity != null) {
-                    StoreManagerListEntity.SkuListEntity serverEntity = new StoreManagerListEntity.SkuListEntity();
-                    serverEntity.spec = entity;
-                    serverEntity.sku_name = sku_name;
-                    mSpecPriceList.add(serverEntity);
-                }
-                mNumberAdapter.notifyDataSetChanged();*/
+                initPriceAndNumber();
             }
         });
+
+        mCommonAdapter.setOnItemDeleteListener(new ImageRecyclerReduceItemListener() {
+            @Override
+            public void onReduceItemListener(int position) {
+                for(int i=mSpecNameCommonList.size()-1;i>=0;i--){
+                    if(mSpecNameCommonList.get(i).title.equals(typeArray1[position])){
+                        mSpecNameCommonList.remove(i);
+                    }
+                }
+                initPriceAndNumber();
+            }
+        });
+        mCommonAdapter.setAddItem(new RecyclerViewAddOneListener() {
+            @Override
+            public void onAddItemListener(String entity, int position) {
+                StoreManagerListEntity.GuigesEntity bean = new StoreManagerListEntity.GuigesEntity();
+                bean.title = typeArray1[position];
+                bean.selfFlag = false;
+                mSpecNameCommonList.add(bean);
+                mCommonAdapter.notifyDataSetChanged();
+                initPriceAndNumber();
+            }
+        });
+
 
         List<StoreManagerListEntity.GuigesEntity> good_guige = (List<StoreManagerListEntity.GuigesEntity>) getIntent().getSerializableExtra("good_guige");
         if (good_guige != null) {
@@ -133,26 +148,40 @@ public class GoodsSpecActicity extends BaseActivity {
         List<StoreManagerListEntity.SkuListEntity> good_spec = (List<StoreManagerListEntity.SkuListEntity>) getIntent().getSerializableExtra("good_spec");
         if (good_spec != null) {
             mSpecPriceList.addAll(good_spec);
-            /*for (int i = 0; i < good_spec.size(); i++) {
-                GoodsSpecNameEntity entity = new GoodsSpecNameEntity();
-                String pre_name = good_spec.get(0).sku_name;
-                entity.name  = good_spec.get(0).sku_name;
-                entity.info_name.add(good_spec.get(0).spec);
-                int b = i + 1;
-                if (b < good_spec.size()) {
-//                    b++;
-                    String old_name = good_spec.get(b).sku_name;
-                    if (pre_name.equals(old_name)) {
-                        entity.info_name.add(good_spec.get(b).spec);
-                    }
-                }
-                mSpecNameSelfList.add(entity);
+        }
+    }
+
+    public void initPriceAndNumber() {
+        mSpecPriceList.clear();
+        String sku_name = "";
+        for (int i = 0; mSpecNameSelfList != null && i < mSpecNameSelfList.size(); i++) {
+            if (i < mSpecNameSelfList.size() - 1) {
+                sku_name = sku_name + mSpecNameSelfList.get(i).title + ",";
+            } else {
+                sku_name = sku_name + mSpecNameSelfList.get(i).title;
             }
-            mSelfAdapter.notifyDataSetChanged();
-            */
+            StoreManagerListEntity.SkuListEntity serverEntity = new StoreManagerListEntity.SkuListEntity();
+            serverEntity.spec = mSpecNameSelfList.get(i).title;
+            serverEntity.sku_name = sku_name;
+            mSpecPriceList.add(serverEntity);
         }
 
+        for (int i = 0; mSpecNameCommonList != null && i < mSpecNameCommonList.size(); i++) {
+            if (i < mSpecNameCommonList.size() - 1) {
+                sku_name = sku_name + mSpecNameCommonList.get(i).title + ",";
+            } else {
+                sku_name = sku_name + mSpecNameCommonList.get(i).title;
+            }
+            StoreManagerListEntity.SkuListEntity serverEntity = new StoreManagerListEntity.SkuListEntity();
+            serverEntity.spec = mSpecNameCommonList.get(i).title;
+            serverEntity.sku_name = sku_name;
+            mSpecPriceList.add(serverEntity);
+        }
+
+        mNumberAdapter.notifyDataSetChanged();
+
     }
+
 
     @OnClick({R.id.rl_back, R.id.tv_add, R.id.rl_right})
     public void onClick(View v) {

@@ -54,6 +54,7 @@ public class GoodsSpecSelfAdapter extends RecyclerView.Adapter<GoodsSpecSelfAdap
             }
         });
         if (getItem == null || position == getItem.size()) {
+            holder.mEt.setText("");
             holder.mEt.setVisibility(View.VISIBLE);
             holder.mRl.setVisibility(View.GONE);
         } else {

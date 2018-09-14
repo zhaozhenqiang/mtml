@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.mutoumulao.expo.redwood.R;
 import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecyclerReduceItemListener;
+import com.mutoumulao.expo.redwood.entity.custom_interface.RecyclerViewAddOneListener;
 
 /**
  * Created by lzy on 2018/8/4.
@@ -59,7 +60,11 @@ public class GoodsSpecCommonAdapter extends RecyclerView.Adapter<GoodsSpecCommon
             public void onClick(View v) {
                 typeFlag[position] = !typeFlag[position];
                 notifyDataSetChanged();
-                //mItemDeleteListener.onReduceItemListener(position);
+                if(!typeFlag[position])
+                    mItemDeleteListener.onReduceItemListener(position);
+                else
+                    mAddItemListener.onAddItemListener(null,position);
+
             }
         });
         holder.mTv_size.setText(typeArray1[position]);
@@ -92,4 +97,10 @@ public class GoodsSpecCommonAdapter extends RecyclerView.Adapter<GoodsSpecCommon
     public void setOnItemDeleteListener(ImageRecyclerReduceItemListener itemDeleteListener) {
         mItemDeleteListener = itemDeleteListener;
     }
+    private RecyclerViewAddOneListener mAddItemListener;
+
+    public void setAddItem(RecyclerViewAddOneListener addItemListener) {
+        mAddItemListener = addItemListener;
+    }
+
 }
