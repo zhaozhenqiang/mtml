@@ -9,8 +9,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mutoumulao.expo.redwood.R;
+import com.mutoumulao.expo.redwood.entity.StoreManagerListEntity;
 import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecyclerReduceItemListener;
 import com.mutoumulao.expo.redwood.entity.custom_interface.RecyclerViewAddOneListener;
+
+import java.util.List;
 
 /**
  * Created by lzy on 2018/8/4.
@@ -38,12 +41,21 @@ public class GoodsSpecCommonAdapter extends RecyclerView.Adapter<GoodsSpecCommon
             "组合", "成份", "版本", "度数", "运营商",
             "属性", "重量", "地区", "套餐", "类别",
             "适用年龄", "功效", "品类", "时间"};
-    boolean[] typeFlag;
+    boolean[] typeFlag = new boolean[typeArray1.length];
+    //private List<StoreManagerListEntity.GuigesEntity> mSpecNameCommonList = new ArrayList<>();
 
-    public GoodsSpecCommonAdapter(Context context, boolean type) {
+    public GoodsSpecCommonAdapter(Context context, List<StoreManagerListEntity.GuigesEntity> list) {
         mContext = context;
-        if(true){
-            typeFlag = new boolean[typeArray1.length];
+        //this.mSpecNameCommonList = list;
+        if(list!=null&&list.size()>0){
+            for(int i=0;i<list.size();i++){
+                for(int j=0;j<typeArray1.length;j++) {
+                    if (list.get(i).title.equals(typeArray1[j])){
+                        typeFlag[j] = true;
+                        continue;
+                    }
+                }
+            }
         }
         mInflater = LayoutInflater.from(context);
     }

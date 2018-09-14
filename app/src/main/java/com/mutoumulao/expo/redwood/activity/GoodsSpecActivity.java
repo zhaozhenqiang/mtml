@@ -83,7 +83,23 @@ public class GoodsSpecActivity extends BaseActivity {
     }
 
     private void initView() {
-        mCommonAdapter = new GoodsSpecCommonAdapter(this,true);
+
+        List<StoreManagerListEntity.GuigesEntity> good_guige = (List<StoreManagerListEntity.GuigesEntity>) getIntent().getSerializableExtra("good_guige");
+        if (good_guige != null) {
+            for(int i=0;i<good_guige.size();i++) {
+                if (good_guige.get(i).selfFlag)
+                    mSpecNameSelfList.add(good_guige.get(i));
+                else
+                    mSpecNameCommonList.add(good_guige.get(i));
+            }
+        }
+        List<StoreManagerListEntity.SkuListEntity> good_spec = (List<StoreManagerListEntity.SkuListEntity>) getIntent().getSerializableExtra("good_spec");
+        if (good_spec != null) {
+            mSpecPriceList.addAll(good_spec);
+        }
+
+
+        mCommonAdapter = new GoodsSpecCommonAdapter(this,mSpecNameCommonList);
         mRvComment.setAdapter(mCommonAdapter);
         mCommonAdapter.notifyDataSetChanged();
         mTvTitle.setText("商品规格");
@@ -141,14 +157,6 @@ public class GoodsSpecActivity extends BaseActivity {
         });
 
 
-        List<StoreManagerListEntity.GuigesEntity> good_guige = (List<StoreManagerListEntity.GuigesEntity>) getIntent().getSerializableExtra("good_guige");
-        if (good_guige != null) {
-            mSpecNameSelfList.addAll(good_guige);
-        }
-        List<StoreManagerListEntity.SkuListEntity> good_spec = (List<StoreManagerListEntity.SkuListEntity>) getIntent().getSerializableExtra("good_spec");
-        if (good_spec != null) {
-            mSpecPriceList.addAll(good_spec);
-        }
     }
 
     public void initPriceAndNumber() {
