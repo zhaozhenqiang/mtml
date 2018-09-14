@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mutoumulao.expo.redwood.R;
-import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecylerReduceItemListener;
+import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecyclerReduceItemListener;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public class GoodsSpecTypeInfoAdapter extends RecyclerView.Adapter<GoodsSpecType
     //    private final List<List<String>> getItem;
     protected LayoutInflater mInflater;
     private int mPosition;
-    private ImageRecylerReduceItemListener mItemDeleteListener;
+    private ImageRecyclerReduceItemListener mItemDeleteListener;
 //    private List<GoodsSpecTypeEntity> mList = new ArrayList<>();
 
     public GoodsSpecTypeInfoAdapter(Context context, /*List<List<String>>*/List<String> list, int position) {
@@ -89,7 +89,7 @@ public class GoodsSpecTypeInfoAdapter extends RecyclerView.Adapter<GoodsSpecType
         }
     }
 
-    public void setOnItemDeleteListener(ImageRecylerReduceItemListener itemDeleteListener) {
+    public void setOnItemDeleteListener(ImageRecyclerReduceItemListener itemDeleteListener) {
         mItemDeleteListener = itemDeleteListener;
     }
 

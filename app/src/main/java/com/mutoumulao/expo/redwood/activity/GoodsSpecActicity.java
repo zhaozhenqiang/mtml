@@ -17,6 +17,7 @@ import com.mutoumulao.expo.redwood.adapter.GoodsSpecSelfAdapter;
 import com.mutoumulao.expo.redwood.adapter.GoodsSpecTypeNumberAdapter;
 import com.mutoumulao.expo.redwood.base.BaseActivity;
 import com.mutoumulao.expo.redwood.entity.StoreManagerListEntity;
+import com.mutoumulao.expo.redwood.entity.custom_interface.RecyclerViewAddItemListener;
 import com.mutoumulao.expo.redwood.util.UIUtil;
 import com.mutoumulao.expo.redwood.view.BaseRecyclerView;
 
@@ -55,9 +56,10 @@ public class GoodsSpecActicity extends BaseActivity {
     @BindView(R.id.rv_spec_common)
     BaseRecyclerView mRvComment;
 
-    private List<StoreManagerListEntity.GuigesEntity> mSpecNameList = new ArrayList<>();
+    private List<StoreManagerListEntity.GuigesEntity> mSpecNameSelfList = new ArrayList<>();
+    private List<StoreManagerListEntity.GuigesEntity> mSpecNameCommonList = new ArrayList<>();
     private List<StoreManagerListEntity.SkuListEntity> mSpecPriceList = new ArrayList<>();
-    private GoodsSpecSelfAdapter mSpecTypeAdapter;
+    private GoodsSpecSelfAdapter goodsSpecSelfAdapter;
     private GoodsSpecTypeNumberAdapter mNumberAdapter;
 
     GoodsSpecCommonAdapter mCommonAdapter;
@@ -76,30 +78,26 @@ public class GoodsSpecActicity extends BaseActivity {
     private void initView() {
         mCommonAdapter = new GoodsSpecCommonAdapter(this,true);
         mRvComment.setAdapter(mCommonAdapter);
-/*        mCommonAdapter.setOnItemDeleteListener(new ImageRecylerReduceItemListener(){
-
-        });*/
         mCommonAdapter.notifyDataSetChanged();
-
         mTvTitle.setText("商品规格");
         mRlRight.setVisibility(View.VISIBLE);
         mTvRight.setText("完成");
-        mSpecTypeAdapter = new GoodsSpecSelfAdapter(this, null,0);
-        mRvSpec.setAdapter(mSpecTypeAdapter);
+        goodsSpecSelfAdapter = new GoodsSpecSelfAdapter(this, mSpecNameSelfList);
+        mRvSpec.setAdapter(goodsSpecSelfAdapter);
 
         mNumberAdapter = new GoodsSpecTypeNumberAdapter(this, mSpecPriceList);
         mRvPrice.setAdapter(mNumberAdapter);
         mRvPrice.setNestedScrollingEnabled(false);
-/*        mSpecTypeAdapter.setAddItem(new RecylerViewAddItemListener() {
+        goodsSpecSelfAdapter.setAddItem(new RecyclerViewAddItemListener() {
             @Override
             public void onAddItemListener(List<String> entity, int position) {
                 mSpecPriceList.clear();
                 String sku_name = "";
-                for (int i = 0; i < mSpecNameList.size(); i++) {
-                    if (i < mSpecNameList.size() - 1) {
-                        sku_name = sku_name + mSpecNameList.get(i).title + ",";
+                for (int i = 0; mSpecNameSelfList!=null&&i < mSpecNameSelfList.size(); i++) {
+                    if (i < mSpecNameSelfList.size() - 1) {
+                        sku_name = sku_name + mSpecNameSelfList.get(i).title + ",";
                     } else {
-                        sku_name = sku_name + mSpecNameList.get(i).title;
+                        sku_name = sku_name + mSpecNameSelfList.get(i).title;
                     }
                 }
                 if (entity != null) {
@@ -112,11 +110,11 @@ public class GoodsSpecActicity extends BaseActivity {
                 }
                 mNumberAdapter.notifyDataSetChanged();
             }
-        });*/
+        });
 
         List<StoreManagerListEntity.GuigesEntity> good_guige = (List<StoreManagerListEntity.GuigesEntity>) getIntent().getSerializableExtra("good_guige");
         if (good_guige != null) {
-            mSpecNameList.addAll(good_guige);
+            mSpecNameSelfList.addAll(good_guige);
         }
         List<StoreManagerListEntity.SkuListEntity> good_spec = (List<StoreManagerListEntity.SkuListEntity>) getIntent().getSerializableExtra("good_spec");
         if (good_spec != null) {
@@ -134,9 +132,9 @@ public class GoodsSpecActicity extends BaseActivity {
                         entity.info_name.add(good_spec.get(b).spec);
                     }
                 }
-                mSpecNameList.add(entity);
+                mSpecNameSelfList.add(entity);
             }
-            mSpecTypeAdapter.notifyDataSetChanged();
+            goodsSpecSelfAdapter.notifyDataSetChanged();
             */
         }
 
@@ -150,10 +148,10 @@ public class GoodsSpecActicity extends BaseActivity {
                     @Override
                     public void onClick(View v) {
                         mSpecPriceList.clear();
-                        mSpecNameList.clear();
+                        mSpecNameSelfList.clear();
                         Intent intent = new Intent();
                         intent.putExtra("good_spec", (Serializable) mSpecPriceList);
-                        intent.putExtra("good_guige", (Serializable) mSpecNameList);
+                        intent.putExtra("good_guige", (Serializable) mSpecNameSelfList);
                         setResult(RESULT_OK, intent);
                         finish();
                     }
@@ -183,7 +181,7 @@ public class GoodsSpecActicity extends BaseActivity {
         }
         Intent intent = new Intent();
         intent.putExtra("good_spec", (Serializable) mSpecPriceList);
-        intent.putExtra("good_guige", (Serializable) mSpecNameList);
+        intent.putExtra("good_guige", (Serializable) mSpecNameSelfList);
         setResult(RESULT_OK, intent);
         finish();
     }
@@ -195,8 +193,8 @@ public class GoodsSpecActicity extends BaseActivity {
 
             StoreManagerListEntity.GuigesEntity entity = new StoreManagerListEntity.GuigesEntity();
             entity.title = name;
-            mSpecNameList.add(entity);
-            mSpecTypeAdapter.notifyDataSetChanged();
+            mSpecNameSelfList.add(entity);
+            goodsSpecSelfAdapter.notifyDataSetChanged();
             mEtName.setText("");
             ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(
                     this.getCurrentFocus().getWindowToken(),

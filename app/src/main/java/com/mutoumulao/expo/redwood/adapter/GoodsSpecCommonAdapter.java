@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mutoumulao.expo.redwood.R;
-import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecylerReduceItemListener;
+import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecyclerReduceItemListener;
 
 /**
  * Created by lzy on 2018/8/4.
@@ -18,7 +18,7 @@ import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecylerReduceIte
 public class GoodsSpecCommonAdapter extends RecyclerView.Adapter<GoodsSpecCommonAdapter.GoodsSpecTypeViewHolder> {
     private final Context mContext;
     protected LayoutInflater mInflater;
-    private ImageRecylerReduceItemListener mItemDeleteListener;
+    private ImageRecyclerReduceItemListener mItemDeleteListener;
     /*
     @"18",@"19",@"20",@"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28"
 
@@ -89,7 +89,7 @@ public class GoodsSpecCommonAdapter extends RecyclerView.Adapter<GoodsSpecCommon
         }
     }
 
-    public void setOnItemDeleteListener(ImageRecylerReduceItemListener itemDeleteListener) {
+    public void setOnItemDeleteListener(ImageRecyclerReduceItemListener itemDeleteListener) {
         mItemDeleteListener = itemDeleteListener;
     }
 }

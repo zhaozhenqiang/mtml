@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.mutoumulao.expo.redwood.R;
 import com.mutoumulao.expo.redwood.base.BaseAdapter;
 import com.mutoumulao.expo.redwood.entity.PositionEntity;
-import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecylerReduceItemListener;
+import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecyclerReduceItemListener;
 
 import java.util.List;
 
@@ -19,8 +19,8 @@ import java.util.List;
 
 public class HomeFuncListAdapter extends BaseAdapter<PositionEntity, HomeFuncListAdapter.FuncListViewHolder> {
 
-    private ImageRecylerReduceItemListener mOnDeleteListerer;
-    private ImageRecylerReduceItemListener mOnEditListener;
+    private ImageRecyclerReduceItemListener mOnDeleteListerer;
+    private ImageRecyclerReduceItemListener mOnEditListener;
 
     public HomeFuncListAdapter(Context context, List list) {
         super(context, list);
@@ -61,11 +61,11 @@ public class HomeFuncListAdapter extends BaseAdapter<PositionEntity, HomeFuncLis
         }
     }
 
-    public void setOnDeleteListerer(ImageRecylerReduceItemListener onDeleteListerer) {
+    public void setOnDeleteListerer(ImageRecyclerReduceItemListener onDeleteListerer) {
         mOnDeleteListerer = onDeleteListerer;
     }
 
-    public void setOnEditListener(ImageRecylerReduceItemListener onEditListener) {
+    public void setOnEditListener(ImageRecyclerReduceItemListener onEditListener) {
         mOnEditListener = onEditListener;
     }
 }

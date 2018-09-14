@@ -16,7 +16,7 @@ import com.mutoumulao.expo.redwood.adapter.GoodsSpecTypeAdapter;
 import com.mutoumulao.expo.redwood.adapter.GoodsSpecTypeNumberAdapter;
 import com.mutoumulao.expo.redwood.base.BaseActivity;
 import com.mutoumulao.expo.redwood.entity.StoreManagerListEntity;
-import com.mutoumulao.expo.redwood.entity.custom_interface.RecylerViewAddItemListener;
+import com.mutoumulao.expo.redwood.entity.custom_interface.RecyclerViewAddItemListener;
 import com.mutoumulao.expo.redwood.util.UIUtil;
 import com.mutoumulao.expo.redwood.view.BaseRecyclerView;
 
@@ -57,25 +57,6 @@ public class GoodsSpecActicityOld extends BaseActivity {
     private GoodsSpecTypeAdapter mSpecTypeAdapter;
     private GoodsSpecTypeNumberAdapter mNumberAdapter;
 
-    private String[] typeArray1 = {"18", "19", "20", "21", "22", "23", "24", "25", "26","27","28"};
-    private String[] typeArray2 = {"尺寸", "材质", "型号", "颜色", "款式",
-            "器型", "口味", "色号", "适用人群", "容量",
-            "花型", "尺码", "地点", "香型", "货号",
-            "组合", "成份", "版本", "度数", "运营商",
-            "属性", "重量", "地区", "套餐", "类别",
-            "适用年龄", "功效", "品类", "时间"};
-    /*
-    @"18",@"19",@"20",@"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28"
-
-    @"尺寸",@"材质",@"型号",@"颜色",@"款式",
-    @"器型",@"口味",@"色号",@"适用人群",@"容量",
-    @"花型",@"尺码",@"地点",@"香型",@"货号",
-    @"组合",@"成份",@"版本",@"度数",@"运营商",
-    @"属性",@"重量",@"地区",@"套餐",@"类别",
-    @"适用年龄",@"功效",@"品类",@"时间"
-    * */
-
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,7 +77,7 @@ public class GoodsSpecActicityOld extends BaseActivity {
         mNumberAdapter = new GoodsSpecTypeNumberAdapter(this, mSpecPriceList);
         mRvPrice.setAdapter(mNumberAdapter);
         mRvPrice.setNestedScrollingEnabled(false);
-        mSpecTypeAdapter.setAddItem(new RecylerViewAddItemListener() {
+        mSpecTypeAdapter.setAddItem(new RecyclerViewAddItemListener() {
             @Override
             public void onAddItemListener(List<String> entity, int position) {
                 mSpecPriceList.clear();
