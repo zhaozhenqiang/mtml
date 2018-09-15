@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,7 +18,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:visibility="gone"
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/height_15dp"
                 android:paddingRight="@dimen/height_15dp">
@@ -68,29 +66,13 @@
                 android:layout_height="@dimen/height_10dp"
                 android:background="@color/bg_line"
                 android:visibility="gone" />
-            <TextView
-                android:id="@+id/tv_type"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_30dp"
-                android:layout_marginTop="@dimen/M"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/L"
-                android:gravity="center_vertical"
-                android:text="吨位"
-                android:textColor="@color/tc_black3" />
+
+
             <com.mutoumulao.expo.redwood.view.BaseRecyclerView
-                android:id="@+id/rv_spec_self"
+                android:id="@+id/rv_spec"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-            <com.mutoumulao.expo.redwood.view.BaseRecyclerView
-                android:id="@+id/rv_spec_common"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:recyclerStyle="grid"
-                android:numColumns="3"
-                android:paddingLeft="@dimen/L"
-                android:paddingBottom="@dimen/L"
-                android:dividerHeight="@dimen/height_5dp"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_10dp"
@@ -133,8 +115,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/M"
-                    android:paddingTop="@dimen/M"
+                    android:paddingBottom="@dimen/S"
+                    android:paddingTop="@dimen/S"
                     android:text="您需要选择相应的销售属性，才能组合完整的规格信息"
                     android:textColor="@color/tc_black9" />
 

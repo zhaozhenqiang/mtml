@@ -12,11 +12,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mutoumulao.expo.redwood.R;
-import com.mutoumulao.expo.redwood.adapter.GoodsSpecCommonAdapter;
-import com.mutoumulao.expo.redwood.adapter.GoodsSpecSelfAdapter;
+import com.mutoumulao.expo.redwood.adapter.GoodsSpecTypeAdapter;
 import com.mutoumulao.expo.redwood.adapter.GoodsSpecTypeNumberAdapter;
 import com.mutoumulao.expo.redwood.base.BaseActivity;
 import com.mutoumulao.expo.redwood.entity.StoreManagerListEntity;
+import com.mutoumulao.expo.redwood.entity.custom_interface.RecylerViewAddItemListener;
 import com.mutoumulao.expo.redwood.util.UIUtil;
 import com.mutoumulao.expo.redwood.view.BaseRecyclerView;
 
@@ -32,7 +32,7 @@ import butterknife.OnClick;
  * Created by lzy on 2018/8/4.
  */
 
-public class GoodsSpecActicity extends BaseActivity {
+public class GoodsSpecActicityOld extends BaseActivity {
     @BindView(R.id.rl_back)
     RelativeLayout mRlBack;
     @BindView(R.id.tv_title)
@@ -47,50 +47,56 @@ public class GoodsSpecActicity extends BaseActivity {
     TextView mTvAdd;
     @BindView(R.id.view01)
     View mView01;
-    @BindView(R.id.rv_spec_self)
+    @BindView(R.id.rv_spec)
     RecyclerView mRvSpec;
     @BindView(R.id.rv_price)
     BaseRecyclerView mRvPrice;
 
-    @BindView(R.id.rv_spec_common)
-    BaseRecyclerView mRvComment;
-
     private List<StoreManagerListEntity.GuigesEntity> mSpecNameList = new ArrayList<>();
     private List<StoreManagerListEntity.SkuListEntity> mSpecPriceList = new ArrayList<>();
-    private GoodsSpecSelfAdapter mSpecTypeAdapter;
+    private GoodsSpecTypeAdapter mSpecTypeAdapter;
     private GoodsSpecTypeNumberAdapter mNumberAdapter;
 
-    GoodsSpecCommonAdapter mCommonAdapter;
+    private String[] typeArray1 = {"18", "19", "20", "21", "22", "23", "24", "25", "26","27","28"};
+    private String[] typeArray2 = {"尺寸", "材质", "型号", "颜色", "款式",
+            "器型", "口味", "色号", "适用人群", "容量",
+            "花型", "尺码", "地点", "香型", "货号",
+            "组合", "成份", "版本", "度数", "运营商",
+            "属性", "重量", "地区", "套餐", "类别",
+            "适用年龄", "功效", "品类", "时间"};
+    /*
+    @"18",@"19",@"20",@"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28"
 
-
+    @"尺寸",@"材质",@"型号",@"颜色",@"款式",
+    @"器型",@"口味",@"色号",@"适用人群",@"容量",
+    @"花型",@"尺码",@"地点",@"香型",@"货号",
+    @"组合",@"成份",@"版本",@"度数",@"运营商",
+    @"属性",@"重量",@"地区",@"套餐",@"类别",
+    @"适用年龄",@"功效",@"品类",@"时间"
+    * */
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_goods_spec);
+        setContentView(R.layout.activity_goods_spec_old);
         ButterKnife.bind(this);
         initView();
     }
 
     private void initView() {
-        mCommonAdapter = new GoodsSpecCommonAdapter(this,true);
-        mRvComment.setAdapter(mCommonAdapter);
-/*        mCommonAdapter.setOnItemDeleteListener(new ImageRecylerReduceItemListener(){
 
-        });*/
-        mCommonAdapter.notifyDataSetChanged();
 
         mTvTitle.setText("商品规格");
         mRlRight.setVisibility(View.VISIBLE);
         mTvRight.setText("完成");
-        mSpecTypeAdapter = new GoodsSpecSelfAdapter(this, null,0);
+        mSpecTypeAdapter = new GoodsSpecTypeAdapter(this, mSpecNameList);
         mRvSpec.setAdapter(mSpecTypeAdapter);
 
         mNumberAdapter = new GoodsSpecTypeNumberAdapter(this, mSpecPriceList);
         mRvPrice.setAdapter(mNumberAdapter);
         mRvPrice.setNestedScrollingEnabled(false);
-/*        mSpecTypeAdapter.setAddItem(new RecylerViewAddItemListener() {
+        mSpecTypeAdapter.setAddItem(new RecylerViewAddItemListener() {
             @Override
             public void onAddItemListener(List<String> entity, int position) {
                 mSpecPriceList.clear();
@@ -112,7 +118,7 @@ public class GoodsSpecActicity extends BaseActivity {
                 }
                 mNumberAdapter.notifyDataSetChanged();
             }
-        });*/
+        });
 
         List<StoreManagerListEntity.GuigesEntity> good_guige = (List<StoreManagerListEntity.GuigesEntity>) getIntent().getSerializableExtra("good_guige");
         if (good_guige != null) {

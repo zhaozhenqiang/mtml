@@ -119,11 +119,14 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             }
 
         } else {
-            for (int i = 0; i < fun_name_customer.length; i++) {
+/*            for (int i = 0; i < fun_name_customer.length; i++) {
                 mList.add(new MineIconEntity(fun_name_customer[i], getResources().getDrawable(fun_icon_customer[i])));
                 mAdapter = new MineFunAdapter(mBaseActivity, mList);
+            }*/
+            for (int i = 0; i < fun_name_business.length; i++) {
+                mList.add(new MineIconEntity(fun_name_business[i], getResources().getDrawable(fun_icon_business[i])));
+                mAdapter = new MineFunAdapter(mBaseActivity, mList);
             }
-
         }
         mRv_fun.setAdapter(mAdapter);
 
