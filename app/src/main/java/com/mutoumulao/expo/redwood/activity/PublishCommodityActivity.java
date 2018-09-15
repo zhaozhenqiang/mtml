@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -23,7 +25,7 @@ import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.mutoumulao.expo.redwood.R;
-import com.mutoumulao.expo.redwood.adapter.GridImageAdapter;
+import com.mutoumulao.expo.redwood.adapter.GridImageAdapterNew;
 import com.mutoumulao.expo.redwood.base.BaseActivity;
 import com.mutoumulao.expo.redwood.constants.UrlConst;
 import com.mutoumulao.expo.redwood.entity.JsonEntity;
@@ -116,7 +118,7 @@ public class PublishCommodityActivity extends BaseActivity {
 
 
     private List<LocalMedia> selectList = new ArrayList<>();
-    private GridImageAdapter mAdapter;
+    private GridImageAdapterNew mAdapter;
     private int maxSelectNum = 99;
     private List<JsonEntity> options1Items = new ArrayList<>();
     private List<ArrayList<String>> options2Items = new ArrayList<>();
@@ -167,13 +169,21 @@ public class PublishCommodityActivity extends BaseActivity {
         StoreManagerListEntity store_entity = (StoreManagerListEntity) getIntent().getSerializableExtra("store_entity");
         mIs_edit = getIntent().getBooleanExtra("is_edit",false);
 
-        mAdapter = new GridImageAdapter(this, onAddPicClickListener);
-        FullyGridLayoutManager manager = new FullyGridLayoutManager(PublishCommodityActivity.this, 3, GridLayoutManager.VERTICAL, false);
+        mAdapter = new GridImageAdapterNew(this, onAddPicClickListener);
+        //FullyGridLayoutManager manager = new FullyGridLayoutManager(PublishCommodityActivity.this, 3, GridLayoutManager.VERTICAL, false);
+        //mRvPhoto.setLayoutManager(manager);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        manager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mRvPhoto.setLayoutManager(manager);
+        PagerSnapHelper snapHelper = new PagerSnapHelper();
+
+        snapHelper.attachToRecyclerView(mRvPhoto);
+
+
         mRvPhoto.setAdapter(mAdapter);
         mAdapter.setList(imageList);
         mAdapter.setSelectMax(maxSelectNum);
-        mAdapter.setOnItemClickListener(new GridImageAdapter.OnItemClickListener() {
+        mAdapter.setOnItemClickListener(new GridImageAdapterNew.OnItemClickListener() {
             @Override
             public void onItemClick(int position, View v) {
                 if (selectList.size() > 0) {
@@ -220,7 +230,7 @@ public class PublishCommodityActivity extends BaseActivity {
 
     }
 
-    private GridImageAdapter.onAddPicClickListener onAddPicClickListener = new GridImageAdapter.onAddPicClickListener() {
+    private GridImageAdapterNew.onAddPicClickListener onAddPicClickListener = new GridImageAdapterNew.onAddPicClickListener() {
         @Override
         public void onAddPicClick() {
             PictureSelector.create(PublishCommodityActivity.this)
@@ -233,7 +243,7 @@ public class PublishCommodityActivity extends BaseActivity {
                     .isCamera(true)
                     .previewImage(false)
                     .isGif(false)// 是否显示gif图片
-                    .selectionMedia(selectList)// 是否传入已选图片
+                    //.selectionMedia(selectList)// 是否传入已选图片
                     .forResult(PictureConfig.CHOOSE_REQUEST);//结果回调onActivityResult code
         }
     };
