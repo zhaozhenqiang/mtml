@@ -222,7 +222,25 @@ public class PublishCommodityActivity extends BaseActivity {
             mGood_spec = store_entity.skuList;
             mGuiges = store_entity.guiges;
             mTvDesc.setText("已填写");
-            mTvGoodsSpec.setText("已填写");
+            if(mGood_spec.size()==1){
+                /*
+                *              entity.sku_name = "默认规格";
+                               entity.spec = "默认规格";
+                * */
+                if(mGood_spec.get(0).sku_name.equals("默认规格")){
+                    mTvGoodsSpec.setText("未填写");
+                    mEtNumber.setText(mGood_spec.get(0).stock);
+                    mEtPrice.setText(mGood_spec.get(0).price);
+                }else {
+                    mTvGoodsSpec.setText("已填写");
+                    mEtPrice.setVisibility(View.GONE);
+                    mEtNumber.setVisibility(View.GONE);
+                }
+            }else {
+                mTvGoodsSpec.setText("已填写");
+                mEtPrice.setVisibility(View.GONE);
+                mEtNumber.setVisibility(View.GONE);
+            }
         }
 
         StringUtil.setSelectionEnd(mEtName);
