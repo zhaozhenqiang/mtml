@@ -94,6 +94,11 @@
                 android:paddingLeft="@dimen/L"
                 android:paddingBottom="@dimen/L"
                 android:dividerHeight="@dimen/height_5dp"/>
+            <ImageView
+                android:id="@+id/iv_more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_down"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_10dp"
@@ -138,6 +143,7 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="@dimen/M"
                     android:paddingTop="@dimen/M"
+                    android:visibility="gone"
                     android:text="您需要选择相应的销售属性，才能组合完整的规格信息"
                     android:textColor="@color/tc_black9" />
 

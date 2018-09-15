@@ -42,6 +42,7 @@ public class GoodsSpecCommonAdapter extends RecyclerView.Adapter<GoodsSpecCommon
             "属性", "重量", "地区", "套餐", "类别",
             "适用年龄", "功效", "品类", "时间"};
     boolean[] typeFlag = new boolean[typeArray1.length];
+    public boolean moreFlag;
     //private List<StoreManagerListEntity.GuigesEntity> mSpecNameCommonList = new ArrayList<>();
 
     public GoodsSpecCommonAdapter(Context context, List<StoreManagerListEntity.GuigesEntity> list) {
@@ -91,7 +92,10 @@ public class GoodsSpecCommonAdapter extends RecyclerView.Adapter<GoodsSpecCommon
 
     @Override
     public int getItemCount() {
-        return typeFlag.length;
+        if(moreFlag)
+            return typeFlag.length;
+        else
+            return 6;
     }
 
     class GoodsSpecTypeViewHolder extends RecyclerView.ViewHolder {

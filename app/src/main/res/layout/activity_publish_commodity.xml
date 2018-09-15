@@ -88,6 +88,41 @@
 
             </LinearLayout>
 
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_1px"
+                android:background="@color/bg_line" />
+
+            <LinearLayout
+                android:id="@+id/ll_transport_expense"
+                style="@style/common_45dp_linearLayout">
+
+                <TextView
+                    style="@style/common_select_text"
+                    android:background="@null"
+                    android:text="运费" />
+
+                <EditText
+                    android:id="@+id/tv_transport_expense"
+                    style="@style/common_edit"
+                    android:gravity="right|center"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal"
+                    android:hint="请输入运费"
+                    android:text="" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¥"
+                    android:layout_marginRight="@dimen/height_15dp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/tc_black3" />
+
+
+            </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_1px"
@@ -107,7 +142,7 @@
                     style="@style/common_edit"
                     android:gravity="right|center"
                     android:layout_weight="1"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:hint="请输入价格"
                     android:text="" />
 
@@ -141,55 +176,20 @@
                     style="@style/common_edit"
                     android:gravity="right|center"
                     android:layout_weight="1"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:hint="请输入库存"
                     android:text="" />
-<!--
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="¥"
-                    android:layout_marginRight="@dimen/height_15dp"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/tc_black3" />-->
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height_1px"
-                android:background="@color/bg_line" />
-
-            <LinearLayout
-                android:id="@+id/ll_transport_expense"
-                style="@style/common_45dp_linearLayout">
-
-                <TextView
-                    style="@style/common_select_text"
-                    android:background="@null"
-                    android:text="运费" />
-
-                <EditText
-                    android:id="@+id/tv_transport_expense"
-                    style="@style/common_edit"
-                    android:gravity="right|center"
-                    android:layout_weight="1"
-                    android:inputType="number"
-                    android:hint="请输入运费"
-                    android:text="" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="¥"
+                    android:visibility="invisible"
                     android:layout_marginRight="@dimen/height_15dp"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/tc_black3" />
 
 
             </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_10dp"

@@ -46,9 +46,13 @@ public class GoodsSpecTypeNumberAdapter extends BaseAdapter<StoreManagerListEnti
         holder.mTv_number_name.setText(item.spec);
         if (!TextUtils.isEmpty(item.stock)) {
             holder.mEt_number_content.setText(item.stock);
+        }else {
+            holder.mEt_number_content.setText("");
         }
         if (!TextUtils.isEmpty(item.price)) {
             holder.mEt_number_price.setText(item.price);
+        }else {
+            holder.mEt_number_price.setText("");
         }
 
         holder.mEt_number_price.addTextChangedListener(new TextSwitcher(holder, "1"));

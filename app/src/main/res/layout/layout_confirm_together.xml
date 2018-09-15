@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_corners10_white_no_padding"
+    android:paddingTop="@dimen/M"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_confirm_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/XL"
+        android:text="批量设置"
+        android:textColor="@color/tc_black3"
+        android:textSize="@dimen/text_size_18" />
+
+
+    <EditText
+        android:id="@+id/et_confirm_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/XL"
+        android:paddingLeft="@dimen/L"
+        android:paddingRight="@dimen/L"
+        android:background="@null"
+        android:hint="请输入价格"
+        android:inputType="numberDecimal"
+        android:textColor="@color/tc_black6"
+        android:textSize="@dimen/text_size_14" />
+    <EditText
+        android:id="@+id/et_confirm_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/XL"
+        android:paddingLeft="@dimen/L"
+        android:paddingRight="@dimen/L"
+        android:background="@null"
+        android:inputType="numberDecimal"
+        android:hint="请输入库存"
+        android:textColor="@color/tc_black6"
+        android:textSize="@dimen/text_size_14" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_1px"
+        android:background="@color/bc_blackd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_confirm_left"
+            android:layout_width="0dip"
+            android:layout_height="36dp"
+            android:layout_margin="@dimen/S"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="取消"
+            android:textColor="@color/tc_blackb"
+            android:textSize="@dimen/text_size_18" />
+
+        <View
+            android:id="@+id/di_confirm_line"
+            android:layout_width="@dimen/height_1px"
+            android:layout_height="match_parent"
+            android:background="@color/bc_blackd" />
+
+        <Button
+            android:id="@+id/btn_confirm_right"
+            android:layout_width="0dip"
+            android:layout_height="36dp"
+            android:layout_margin="@dimen/S"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="确定"
+            android:textColor="@color/bc_blue"
+            android:textSize="@dimen/text_size_18" />
+    </LinearLayout>
+
+
+</LinearLayout>

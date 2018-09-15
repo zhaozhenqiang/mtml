@@ -1,13 +1,17 @@
 package com.mutoumulao.expo.redwood.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -29,6 +33,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.mutoumulao.expo.redwood.util.UIUtil.showAlert;
 
 /**
  * Created by lzy on 2018/8/4.
@@ -56,6 +62,11 @@ public class GoodsSpecActivity extends BaseActivity {
 
     @BindView(R.id.rv_spec_common)
     BaseRecyclerView mRvComment;
+    @BindView(R.id.tv_together)
+    TextView mTvTogether;
+
+    @BindView(R.id.iv_more)
+    ImageView mIvMore;
 
     private String[] typeArray1 = {"尺寸", "材质", "型号", "颜色", "款式",
             "器型", "口味", "色号", "适用人群", "容量",
@@ -156,8 +167,72 @@ public class GoodsSpecActivity extends BaseActivity {
             }
         });
 
+        mIvMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                moreFlag = !moreFlag;
+                if(moreFlag){
+                    mIvMore.setImageResource(R.drawable.icon_up);
+                }else {
+                    mIvMore.setImageResource(R.drawable.icon_down);
+
+                }
+                mCommonAdapter.moreFlag = moreFlag;
+                mCommonAdapter.notifyDataSetChanged();
+            }
+        });
+        mTvTogether.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mSpecPriceList!=null&&mSpecPriceList.size()>0) {
+                    showWindows();
+                }else {
+                    UIUtil.toastShort(GoodsSpecActivity.this, "请选择属性");
+                }
+            }
+        });
+
 
     }
+
+
+    private void showWindows() {
+        View view = LayoutInflater.from(this).inflate(R.layout.layout_confirm_together, null);
+        final Dialog dialog = showAlert(this, view);
+        final EditText priceText = (EditText) view.findViewById(R.id.et_confirm_price);
+        final EditText numberText = (EditText) view.findViewById(R.id.et_confirm_number);
+        Button leftBtn = (Button) view.findViewById(R.id.btn_confirm_left);
+        Button rightBtn = (Button) view.findViewById(R.id.btn_confirm_right);
+        leftBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        rightBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                String price = priceText.getText().toString();
+                String number = numberText.getText().toString();
+                if (TextUtils.isEmpty(price)) {
+                    UIUtil.toastShort(GoodsSpecActivity.this, "请输入价格");
+                    return;
+                }
+                if (TextUtils.isEmpty(number)){
+                    UIUtil.toastShort(GoodsSpecActivity.this, "请输入数量");
+                    return;
+                }
+                for(int i=0;i<mSpecPriceList.size();i++){
+                    mSpecPriceList.get(i).price = price;
+                    mSpecPriceList.get(i).stock = number;
+                }
+                mNumberAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    boolean moreFlag;
 
     public void initPriceAndNumber() {
         mSpecPriceList.clear();
@@ -199,6 +274,7 @@ public class GoodsSpecActivity extends BaseActivity {
                     @Override
                     public void onClick(View v) {
                         mSpecPriceList.clear();
+                        mSpecNameCommonList.clear();
                         mSpecNameSelfList.clear();
                         Intent intent = new Intent();
                         intent.putExtra("good_spec", (Serializable) mSpecPriceList);
@@ -232,7 +308,8 @@ public class GoodsSpecActivity extends BaseActivity {
         }
         Intent intent = new Intent();
         intent.putExtra("good_spec", (Serializable) mSpecPriceList);
-        intent.putExtra("good_guige", (Serializable) mSpecNameSelfList);
+        mSpecNameSelfList.addAll(mSpecNameCommonList);
+        intent.putExtra("good_guige", (Serializable) (mSpecNameSelfList));
         setResult(RESULT_OK, intent);
         finish();
     }

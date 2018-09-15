@@ -302,7 +302,13 @@ public class PublishCommodityActivity extends BaseActivity {
                 UIUtil.toastShort(this, "请输入库存");
                 return;
             }
-            return;
+            mGood_spec = new ArrayList<>();
+            StoreManagerListEntity.SkuListEntity entity = new StoreManagerListEntity.SkuListEntity();
+            entity.price = price;
+            entity.stock = number;
+            entity.sku_name = "默认规格";
+            entity.spec = "默认规格";
+            mGood_spec.add(entity);
         }
         String name = mEtName.getText().toString().trim();
         if (TextUtils.isEmpty(name)) {
