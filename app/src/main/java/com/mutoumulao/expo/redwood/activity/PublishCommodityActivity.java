@@ -104,6 +104,16 @@ public class PublishCommodityActivity extends BaseActivity {
     @BindView(R.id.btn_go)
     Button mBtnGo;
 
+    @BindView(R.id.ll_price)
+    View mLlPrice;
+    @BindView(R.id.ll_number)
+    View mLlNumber;
+    @BindView(R.id.et_number)
+    EditText mEtNumber;
+    @BindView(R.id.et_price)
+    EditText mEtPrice;
+
+
 
     private List<LocalMedia> selectList = new ArrayList<>();
     private GridImageAdapter mAdapter;
@@ -242,7 +252,7 @@ public class PublishCommodityActivity extends BaseActivity {
                 showSelect();
                 break;
             case R.id.ll_goods_spec:
-                intent = new Intent(this, GoodsSpecActicity.class);
+                intent = new Intent(this, GoodsSpecActivity.class);
                 if (mGood_spec != null) {
                     intent.putExtra("good_spec", (Serializable) mGood_spec);
                 }
@@ -272,7 +282,16 @@ public class PublishCommodityActivity extends BaseActivity {
 
     private void publish() {
         if (mGood_spec == null) {
-            UIUtil.toastShort(this, "请选择商品规格");
+            String price = mEtPrice.getText().toString();
+            if (TextUtils.isEmpty(price)) {
+                UIUtil.toastShort(this, "请输入价格");
+                return;
+            }
+            String number = mEtNumber.getText().toString();
+            if (TextUtils.isEmpty(number)) {
+                UIUtil.toastShort(this, "请输入库存");
+                return;
+            }
             return;
         }
         String name = mEtName.getText().toString().trim();
@@ -300,7 +319,7 @@ public class PublishCommodityActivity extends BaseActivity {
             return;
         }
 
-        String goods = JSON.toJSONString(mGood_spec);
+        String goods = JSON.toJSONString(mGood_spec);//todo:
         String good_image="";
         for (int i = 0; i < imageList.size(); i++) {
             if (i < imageList.size() - 1) {
@@ -386,8 +405,12 @@ public class PublishCommodityActivity extends BaseActivity {
                 mGuiges = (List<StoreManagerListEntity.GuigesEntity>) data.getSerializableExtra("good_guige");
                 if (mGood_spec==null || mGood_spec.size() == 0) {
                     mTvGoodsSpec.setHint("未填写");
+                    mLlNumber.setVisibility(View.VISIBLE);
+                    mLlPrice.setVisibility(View.VISIBLE);
                 }else {
                     mTvGoodsSpec.setText("已填写");
+                    mLlPrice.setVisibility(View.GONE);
+                    mLlNumber.setVisibility(View.GONE);
                 }
                 break;
 

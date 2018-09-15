@@ -14,10 +14,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mutoumulao.expo.redwood.R;
-import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecylerReduceItemListener;
+import com.mutoumulao.expo.redwood.entity.StoreManagerListEntity;
+import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecyclerReduceItemListener;
+import com.mutoumulao.expo.redwood.entity.custom_interface.RecyclerViewAddOneListener;
 import com.mutoumulao.expo.redwood.util.UIUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,18 +27,15 @@ import java.util.List;
 
 public class GoodsSpecSelfAdapter extends RecyclerView.Adapter<GoodsSpecSelfAdapter.GoodsSpecTypeViewHolder> {
     private final Context mContext;
-    private List<String> getItem;
-    //    private final List<List<String>> getItem;
+    private List<StoreManagerListEntity.GuigesEntity> getItem;
     protected LayoutInflater mInflater;
-    private int mPosition;
-    private ImageRecylerReduceItemListener mItemDeleteListener;
-//    private List<GoodsSpecTypeEntity> mList = new ArrayList<>();
+    
 
-    public GoodsSpecSelfAdapter(Context context, /*List<List<String>>*/List<String> list, int position) {
+
+    public GoodsSpecSelfAdapter(Context context,List<StoreManagerListEntity.GuigesEntity> list) {
         mContext = context;
         getItem = list;
         mInflater = LayoutInflater.from(context);
-        mPosition = position;
     }
 
     @Override
@@ -50,18 +48,19 @@ public class GoodsSpecSelfAdapter extends RecyclerView.Adapter<GoodsSpecSelfAdap
         holder.mRl_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getItem.remove(position);
-                notifyDataSetChanged();
+/*                getItem.remove(position);
+                notifyDataSetChanged();*/
                 mItemDeleteListener.onReduceItemListener(position);
             }
         });
-        if(getItem==null || position == getItem.size()){
+        if (getItem == null || position == getItem.size()) {
+            holder.mEt.setText("");
             holder.mEt.setVisibility(View.VISIBLE);
             holder.mRl.setVisibility(View.GONE);
-        }else{
+        } else {
             holder.mEt.setVisibility(View.GONE);
             holder.mRl.setVisibility(View.VISIBLE);
-            String item = getItem/*.get(mPosition)*/.get(position);
+            String item = getItem.get(position).title;
             if (!TextUtils.isEmpty(item)) {
                 holder.mTv_size.setVisibility(View.VISIBLE);
                 holder.mTv_size.setText(item);
@@ -76,9 +75,13 @@ public class GoodsSpecSelfAdapter extends RecyclerView.Adapter<GoodsSpecSelfAdap
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     String size = holder.mEt.getText().toString().trim();
                     if (!TextUtils.isEmpty(size)) {
-                        if(getItem==null)
+/*                        if (getItem == null)
                             getItem = new ArrayList<>();
-                        getItem.add(size);
+                        StoreManagerListEntity.GuigesEntity bean = new StoreManagerListEntity.GuigesEntity();
+                        bean.title = size;
+                        bean.selfFlag = true;
+                        getItem.add(bean);*/
+                        mAddItemListener.onAddItemListener(size,getItem.size());
                         notifyDataSetChanged();
                     } else {
                         UIUtil.toastShort(mContext, "请输入规格参数");
@@ -95,7 +98,7 @@ public class GoodsSpecSelfAdapter extends RecyclerView.Adapter<GoodsSpecSelfAdap
     public int getItemCount() {
         try {
             if (getItem != null && getItem.size() > 0) {
-                return getItem./*get(mPosition).*/size()+1;
+                return getItem./*get(mPosition).*/size() + 1;
             } else {
                 return 1;
             }
@@ -125,7 +128,13 @@ public class GoodsSpecSelfAdapter extends RecyclerView.Adapter<GoodsSpecSelfAdap
         }
     }
 
-    public void setOnItemDeleteListener(ImageRecylerReduceItemListener itemDeleteListener) {
+    private ImageRecyclerReduceItemListener mItemDeleteListener;
+    private RecyclerViewAddOneListener mAddItemListener;
+
+    public void setAddItem(RecyclerViewAddOneListener addItemListener) {
+        mAddItemListener = addItemListener;
+    }
+    public void setOnItemDeleteListener(ImageRecyclerReduceItemListener itemDeleteListener) {
         mItemDeleteListener = itemDeleteListener;
     }
 

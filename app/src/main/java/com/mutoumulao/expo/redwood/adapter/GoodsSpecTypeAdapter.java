@@ -13,8 +13,8 @@ import android.widget.TextView;
 import com.mutoumulao.expo.redwood.R;
 import com.mutoumulao.expo.redwood.base.BaseAdapter;
 import com.mutoumulao.expo.redwood.entity.StoreManagerListEntity;
-import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecylerReduceItemListener;
-import com.mutoumulao.expo.redwood.entity.custom_interface.RecylerViewAddItemListener;
+import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecyclerReduceItemListener;
+import com.mutoumulao.expo.redwood.entity.custom_interface.RecyclerViewAddItemListener;
 import com.mutoumulao.expo.redwood.util.UIUtil;
 import com.mutoumulao.expo.redwood.view.BaseRecyclerView;
 
@@ -28,7 +28,7 @@ import java.util.List;
 public class GoodsSpecTypeAdapter extends BaseAdapter<StoreManagerListEntity.GuigesEntity, GoodsSpecTypeAdapter.GoodsSpecTypeViewHolder> {
 
     //    private List<List<String>> mTypeList = new ArrayList<>();
-    private RecylerViewAddItemListener mAddItemListener;
+    private RecyclerViewAddItemListener mAddItemListener;
     public GoodsSpecTypeInfoAdapter mInfoAdapter;
 
     public GoodsSpecTypeAdapter(Context context, List<StoreManagerListEntity.GuigesEntity> list) {
@@ -47,7 +47,7 @@ public class GoodsSpecTypeAdapter extends BaseAdapter<StoreManagerListEntity.Gui
         mInfoAdapter = new GoodsSpecTypeInfoAdapter(mContext, item.guigeArray, position);
         holder.mRv_spec_size.setAdapter(mInfoAdapter);
 
-        mInfoAdapter.setOnItemDeleteListener(new ImageRecylerReduceItemListener() {
+        mInfoAdapter.setOnItemDeleteListener(new ImageRecyclerReduceItemListener() {
             @Override
             public void onReduceItemListener(int position) {
                    /* item.info_name.remove(position);
@@ -73,7 +73,7 @@ public class GoodsSpecTypeAdapter extends BaseAdapter<StoreManagerListEntity.Gui
                         mAddItemListener.onAddItemListener(list, position);
                         holder.mEt_size.setText("");
 
-                        mInfoAdapter.setOnItemDeleteListener(new ImageRecylerReduceItemListener() {
+                        mInfoAdapter.setOnItemDeleteListener(new ImageRecyclerReduceItemListener() {
                             @Override
                             public void onReduceItemListener(int position) {
 
@@ -161,7 +161,7 @@ public class GoodsSpecTypeAdapter extends BaseAdapter<StoreManagerListEntity.Gui
         }
     }
 
-    public void setAddItem(RecylerViewAddItemListener addItemListener) {
+    public void setAddItem(RecyclerViewAddItemListener addItemListener) {
         mAddItemListener = addItemListener;
     }
 

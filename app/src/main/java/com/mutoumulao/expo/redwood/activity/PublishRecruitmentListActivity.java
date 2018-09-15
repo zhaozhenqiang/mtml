@@ -17,7 +17,7 @@ import com.mutoumulao.expo.redwood.R;
 import com.mutoumulao.expo.redwood.adapter.FuncListAdapter;
 import com.mutoumulao.expo.redwood.base.BaseActivity;
 import com.mutoumulao.expo.redwood.entity.PositionEntity;
-import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecylerReduceItemListener;
+import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecyclerReduceItemListener;
 import com.mutoumulao.expo.redwood.entity.event.PublishRecruitmentEntity;
 import com.mutoumulao.expo.redwood.fragment.MineFragment;
 import com.mutoumulao.expo.redwood.logic.MineFuncManager;
@@ -286,14 +286,14 @@ public class PublishRecruitmentListActivity extends BaseActivity {
         mAdapter = new FuncListAdapter(this, mList);
         mRecyclerView.setAdapter(mAdapter);
 
-        mAdapter.setOnEditListener(new ImageRecylerReduceItemListener() {
+        mAdapter.setOnEditListener(new ImageRecyclerReduceItemListener() {
             @Override
             public void onReduceItemListener(int position) {
                 toEdit(position);
             }
         });
 
-        mAdapter.setOnDeleteListerer(new ImageRecylerReduceItemListener() {
+        mAdapter.setOnDeleteListerer(new ImageRecyclerReduceItemListener() {
             @Override
             public void onReduceItemListener(int position) {
                 delete(position);

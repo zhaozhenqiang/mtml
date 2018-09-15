@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mutoumulao.expo.redwood.R;
-import com.mutoumulao.expo.redwood.activity.GoodsSpecActicity;
+import com.mutoumulao.expo.redwood.activity.GoodsSpecActivity;
 import com.mutoumulao.expo.redwood.base.BaseAdapter;
 import com.mutoumulao.expo.redwood.entity.StoreManagerListEntity;
 
@@ -92,10 +92,10 @@ public class GoodsSpecTypeNumberAdapter extends BaseAdapter<StoreManagerListEnti
 
             if ("1".equals(mType)) {
                 int position = (Integer) mHolder.mEt_number_price.getTag();
-                ((GoodsSpecActicity) mContext).saveEditData(position, mType, s.toString());
+                ((GoodsSpecActivity) mContext).saveEditData(position, mType, s.toString());
             } else if ("2".equals(mType)) {
                 int position = (Integer) mHolder.mEt_number_content.getTag();
-                ((GoodsSpecActicity) mContext).saveEditData(position, mType, s.toString());
+                ((GoodsSpecActivity) mContext).saveEditData(position, mType, s.toString());
             }
         }
     }

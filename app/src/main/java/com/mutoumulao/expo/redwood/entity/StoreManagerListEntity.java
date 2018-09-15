@@ -88,6 +88,7 @@ public class StoreManagerListEntity implements Serializable {
         "title": "颜色",
 		"guigeArray": ["绿色", "红色"]
          */
+        public boolean selfFlag;
         public String title;
         public List<String> guigeArray= new ArrayList<>();
     }

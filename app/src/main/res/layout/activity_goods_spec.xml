@@ -81,7 +81,10 @@
             <com.mutoumulao.expo.redwood.view.BaseRecyclerView
                 android:id="@+id/rv_spec_self"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                app:recyclerStyle="grid"
+                android:numColumns="3"
+                android:paddingLeft="@dimen/L"/>
             <com.mutoumulao.expo.redwood.view.BaseRecyclerView
                 android:id="@+id/rv_spec_common"
                 android:layout_width="match_parent"
