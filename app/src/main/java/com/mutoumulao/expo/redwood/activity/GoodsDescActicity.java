@@ -135,7 +135,7 @@ public class GoodsDescActicity extends BaseActivity {
                     .isCamera(true)
                     .previewImage(false)
                     .isGif(false)// 是否显示gif图片
-                    .selectionMedia(selectList)// 是否传入已选图片
+                    //.selectionMedia(selectList)// 是否传入已选图片
                     .forResult(PictureConfig.CHOOSE_REQUEST);//结果回调onActivityResult code
         }
     };
@@ -201,12 +201,15 @@ public class GoodsDescActicity extends BaseActivity {
     }
 
     private void sendPhoto(Intent data) {
+        List<LocalMedia> newList = new ArrayList<>();
 
-        selectList = PictureSelector.obtainMultipleResult(data);
-        for (int i = 0; i < selectList.size(); i++) {
+        //selectList = PictureSelector.obtainMultipleResult(data);
+        newList = PictureSelector.obtainMultipleResult(data);
+        selectList.addAll(newList);
+        for (int i = 0; i < newList.size(); i++) {
 
             UIUtil.showProgressBar(this, "", false);
-            File file = new File(selectList.get(i).getCompressPath());
+            File file = new File(newList.get(i).getCompressPath());
             OkHttpClient mOkHttpClent = new OkHttpClient();
             mOkHttpClent.dispatcher().setMaxRequestsPerHost(9);
             MultipartBody.Builder builder = new MultipartBody.Builder()
