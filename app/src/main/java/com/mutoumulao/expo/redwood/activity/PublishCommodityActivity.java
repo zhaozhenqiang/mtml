@@ -281,6 +281,15 @@ public class PublishCommodityActivity extends BaseActivity {
                 break;
             case R.id.ll_goods_spec:
                 intent = new Intent(this, GoodsSpecActivity.class);
+                //if(mGood_spec.size()==1){
+                /*
+                *              entity.sku_name = "默认规格";
+                               entity.spec = "默认规格";
+                * */
+                if(mGood_spec!=null&&mGood_spec.size()==1&&mGood_spec.get(0).sku_name.equals("默认规格")){
+                    startActivityForResult(intent, SELECT_SPEC);
+                    return;
+                }
                 if (mGood_spec != null) {
                     intent.putExtra("good_spec", (Serializable) mGood_spec);
                 }

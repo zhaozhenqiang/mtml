@@ -125,10 +125,14 @@ public class GoodsSpecActivity extends BaseActivity {
         mSelfAdapter.setOnItemDeleteListener(new ImageRecyclerReduceItemListener() {
             @Override
             public void onReduceItemListener(int position) {
-                if(mSpecNameSelfList!=null&&mSpecNameSelfList.size()>position)
+                if(mSpecNameSelfList!=null&&mSpecNameSelfList.size()>position) {
+                    minusPriceAndNumberItem(mSpecNameSelfList.get(position).title);
                     mSpecNameSelfList.remove(position);
-                mSelfAdapter.notifyDataSetChanged();
-                initPriceAndNumber();
+                    mNumberAdapter.notifyDataSetChanged();
+                    mSelfAdapter.notifyDataSetChanged();
+                    return;
+                }
+                //initPriceAndNumber();
             }
         });
         mSelfAdapter.setAddItem(new RecyclerViewAddOneListener() {
@@ -140,7 +144,9 @@ public class GoodsSpecActivity extends BaseActivity {
                 mSpecNameSelfList.add(bean);
                 mSelfAdapter.notifyDataSetChanged();
 
-                initPriceAndNumber();
+                addPriceAndNumberItem(bean.title);
+                mNumberAdapter.notifyDataSetChanged();
+
             }
         });
 
@@ -149,10 +155,15 @@ public class GoodsSpecActivity extends BaseActivity {
             public void onReduceItemListener(int position) {
                 for(int i=mSpecNameCommonList.size()-1;i>=0;i--){
                     if(mSpecNameCommonList.get(i).title.equals(typeArray1[position])){
+                        minusPriceAndNumberItem(mSpecNameCommonList.get(i).title);
                         mSpecNameCommonList.remove(i);
+                        mNumberAdapter.notifyDataSetChanged();
+                        return;
                     }
                 }
-                initPriceAndNumber();
+                //initPriceAndNumber();
+                //mNumberAdapter.notifyDataSetChanged();
+
             }
         });
         mCommonAdapter.setAddItem(new RecyclerViewAddOneListener() {
@@ -163,7 +174,11 @@ public class GoodsSpecActivity extends BaseActivity {
                 bean.selfFlag = false;
                 mSpecNameCommonList.add(bean);
                 mCommonAdapter.notifyDataSetChanged();
-                initPriceAndNumber();
+                //initPriceAndNumber();
+                addPriceAndNumberItem(bean.title);
+
+                mNumberAdapter.notifyDataSetChanged();
+
             }
         });
 
@@ -234,36 +249,59 @@ public class GoodsSpecActivity extends BaseActivity {
 
     boolean moreFlag;
 
+    public void addPriceAndNumberItem(String title){
+        StoreManagerListEntity.SkuListEntity serverEntity = new StoreManagerListEntity.SkuListEntity();
+        serverEntity.spec = title;
+        serverEntity.sku_name = serverEntity.spec;
+        mSpecPriceList.add(serverEntity);
+    }
+
+    public void minusPriceAndNumberItem(String title){
+        for(int i=0;i<mSpecPriceList.size();i++){
+            if(title.equals(mSpecPriceList.get(i).spec)) {
+                mSpecPriceList.remove(i);
+                return;
+            }
+        }
+    }
+
+/*
+
     public void initPriceAndNumber() {
         mSpecPriceList.clear();
-        String sku_name = "";
+        //String sku_name = "";
         for (int i = 0; mSpecNameSelfList != null && i < mSpecNameSelfList.size(); i++) {
-            if (i < mSpecNameSelfList.size() - 1) {
+*/
+/*            if (i < mSpecNameSelfList.size() - 1) {
                 sku_name = sku_name + mSpecNameSelfList.get(i).title + ",";
             } else {
                 sku_name = sku_name + mSpecNameSelfList.get(i).title;
-            }
+            }*//*
+
             StoreManagerListEntity.SkuListEntity serverEntity = new StoreManagerListEntity.SkuListEntity();
             serverEntity.spec = mSpecNameSelfList.get(i).title;
-            serverEntity.sku_name = sku_name;
+            serverEntity.sku_name = serverEntity.spec;
             mSpecPriceList.add(serverEntity);
         }
 
         for (int i = 0; mSpecNameCommonList != null && i < mSpecNameCommonList.size(); i++) {
-            if (i < mSpecNameCommonList.size() - 1) {
+*/
+/*            if (i < mSpecNameCommonList.size() - 1) {
                 sku_name = sku_name + mSpecNameCommonList.get(i).title + ",";
             } else {
                 sku_name = sku_name + mSpecNameCommonList.get(i).title;
-            }
+            }*//*
+
             StoreManagerListEntity.SkuListEntity serverEntity = new StoreManagerListEntity.SkuListEntity();
             serverEntity.spec = mSpecNameCommonList.get(i).title;
-            serverEntity.sku_name = sku_name;
+            serverEntity.sku_name = serverEntity.spec;
             mSpecPriceList.add(serverEntity);
         }
 
         mNumberAdapter.notifyDataSetChanged();
 
     }
+*/
 
 
     @OnClick({R.id.rl_back, R.id.tv_add, R.id.rl_right})
