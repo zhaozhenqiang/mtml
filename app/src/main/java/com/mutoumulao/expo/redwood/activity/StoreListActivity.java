@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mutoumulao.expo.redwood.R;
+import com.mutoumulao.expo.redwood.adapter.GridImageAdapter;
 import com.mutoumulao.expo.redwood.adapter.StoreManagerListAdapter;
 import com.mutoumulao.expo.redwood.base.BaseActivity;
 import com.mutoumulao.expo.redwood.entity.StoreManagerListEntity;
@@ -29,6 +30,7 @@ import com.mutoumulao.expo.redwood.view.PullToRefreshView;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -149,6 +151,41 @@ public class StoreListActivity extends BaseActivity {
                 return false;
             }
         });
+        mAdapter.setClickListener(new GridImageAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(final int position, View view) {
+                if(view.getId()==R.id.tv_edit){
+                    StoreManagerListEntity entity = mList.get(position);
+                    Intent intent = new Intent(StoreListActivity.this, PublishCommodityActivity.class);
+                    intent.putExtra("store_entity", entity);
+                    intent.putExtra("is_edit", true);
+                    startActivity(intent);
+                }else if(view.getId()==R.id.tv_delete){
+                    UIUtil.showConfirm(StoreListActivity.this, "确定删除商品吗？", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            deleteData(position);  //删除事件的方法
+
+                        }
+                    });
+                    deleteData(position);  //删除事件的方法
+
+                }
+            }
+        });/*new BaseRecyclerView.OnItemClickListener() {
+            @Override
+            public void onItemClick(RecyclerView parent, View view, int position, long id) {
+                if(view.getId()==R.id.tv_edit){
+                    StoreManagerListEntity entity = mList.get(position);
+                    Intent intent = new Intent(StoreListActivity.this, PublishCommodityActivity.class);
+                    intent.putExtra("store_entity", entity);
+                    intent.putExtra("is_edit", true);
+                    startActivity(intent);
+                }else if(view.getId()==R.id.tv_delete){
+                    deleteData(position);  //删除事件的方法
+                }
+            }
+        });*/
 
 
     }

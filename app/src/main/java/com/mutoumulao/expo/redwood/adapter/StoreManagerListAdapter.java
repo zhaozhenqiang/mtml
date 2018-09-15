@@ -38,7 +38,7 @@ public class StoreManagerListAdapter extends BaseAdapter<StoreManagerListEntity,
     }
 
     @Override
-    public void onBindViewHolder(StoreManagerListViewHolder holder, int position) {
+    public void onBindViewHolder(StoreManagerListViewHolder holder, final int position) {
         try {
             final StoreManagerListEntity entity = mItems.get(position);
             List<String> goods_image = entity.goods_image;
@@ -57,6 +57,18 @@ public class StoreManagerListAdapter extends BaseAdapter<StoreManagerListEntity,
                 }
             });
 
+            holder.mTvDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    clickListener.onItemClick(position,view);
+                }
+            });
+            holder.mTvEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    clickListener.onItemClick(position,view);
+                }
+            });
 
             holder.mLl_content.setTag(position);
         } catch (Exception e) {
@@ -73,6 +85,10 @@ public class StoreManagerListAdapter extends BaseAdapter<StoreManagerListEntity,
         private final TextView mTv_other;
         private final LinearLayout mLl_content;
 
+        private final TextView mTvEdit;
+        private final TextView mTvDelete;
+
+
         public StoreManagerListViewHolder(View itemView) {
             super(itemView);
             mIv_goods = itemView.findViewById(R.id.iv_goods);
@@ -81,6 +97,17 @@ public class StoreManagerListAdapter extends BaseAdapter<StoreManagerListEntity,
             mTv_price = itemView.findViewById(R.id.tv_price);
             mTv_other = itemView.findViewById(R.id.tv_other);
             mLl_content = itemView.findViewById(R.id.ll_content);
+            mTvEdit = itemView.findViewById(R.id.tv_edit);
+            mTvDelete = itemView.findViewById(R.id.tv_delete);
         }
+    }
+    GridImageAdapter.OnItemClickListener clickListener;
+
+    public GridImageAdapter.OnItemClickListener getClickListener() {
+        return clickListener;
+    }
+
+    public void setClickListener(GridImageAdapter.OnItemClickListener clickListener) {
+        this.clickListener = clickListener;
     }
 }
