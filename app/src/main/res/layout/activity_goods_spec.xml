@@ -76,7 +76,7 @@
                 android:layout_weight="1"
                 android:paddingLeft="@dimen/L"
                 android:gravity="center_vertical"
-                android:text="颜色"
+                android:text="颜色分类"
                 android:textColor="@color/tc_black3" />
             <com.mutoumulao.expo.redwood.view.BaseRecyclerView
                 android:id="@+id/rv_spec_self"

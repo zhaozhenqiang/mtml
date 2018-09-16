@@ -127,7 +127,7 @@ public class StoreListActivity extends BaseActivity {
     private void initView() {
         mTvTitle.setText("商品管理");
         mBtnGo.setText("发布商品");
-        mAdapter = new StoreManagerListAdapter(this, mList);
+        mAdapter = new StoreManagerListAdapter(this, mList,true);
         mRvStore.setAdapter(mAdapter);
         // 监听上拉下拉
         mPullView.setOnHeaderRefreshListener(new PullToRefreshView.OnHeaderRefreshListener() {
@@ -168,7 +168,7 @@ public class StoreListActivity extends BaseActivity {
 
                         }
                     });
-                    deleteData(position);  //删除事件的方法
+                    //deleteData(position);  //删除事件的方法
 
                 }
             }

@@ -25,6 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:text="名字"
             android:textColor="@color/tc_black3" />
 
@@ -35,6 +37,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="地点"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textColor="@color/tc_black9" />
 
         <RelativeLayout
@@ -77,6 +81,7 @@
             android:text="编辑"
             android:layout_marginBottom="@dimen/L"
             android:padding="@dimen/L"
+            android:visibility="gone"
             android:background="@drawable/shape_red_rect"
             android:textColor="@color/tc_red" />
 
@@ -89,6 +94,7 @@
             android:background="@drawable/shape_red_rect"
             android:padding="@dimen/L"
             android:text="删除"
+            android:visibility="gone"
             android:textColor="@color/tc_red" />
 
     </LinearLayout>

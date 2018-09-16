@@ -26,10 +26,16 @@ import java.util.List;
 public class StoreManagerListAdapter extends BaseAdapter<StoreManagerListEntity, StoreManagerListAdapter.StoreManagerListViewHolder> {
 
     private final BitmapTools mBitmapTools;
+    private boolean showFlag;
 
     public StoreManagerListAdapter(Context context, List<StoreManagerListEntity> list) {
         super(context, list);
         mBitmapTools = new BitmapTools(context);
+    }
+    public StoreManagerListAdapter(Context context, List<StoreManagerListEntity> list,boolean showFlag) {
+        super(context, list);
+        mBitmapTools = new BitmapTools(context);
+        this.showFlag = showFlag;
     }
 
     @Override
@@ -56,6 +62,14 @@ public class StoreManagerListAdapter extends BaseAdapter<StoreManagerListEntity,
                     mContext.startActivity(new Intent(mContext, GoodsDetialActivity.class).putExtra("id", entity.id));
                 }
             });
+
+            if(showFlag){
+                holder.mTvEdit.setVisibility(View.VISIBLE);
+                holder.mTvDelete.setVisibility(View.VISIBLE);
+            }else {
+                holder.mTvEdit.setVisibility(View.GONE);
+                holder.mTvDelete.setVisibility(View.GONE);
+            }
 
             holder.mTvDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
