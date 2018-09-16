@@ -98,10 +98,22 @@ public class GoodsSpecActivity extends BaseActivity {
         List<StoreManagerListEntity.GuigesEntity> good_guige = (List<StoreManagerListEntity.GuigesEntity>) getIntent().getSerializableExtra("good_guige");
         if (good_guige != null) {
             for(int i=0;i<good_guige.size();i++) {
-                if (good_guige.get(i).selfFlag)
+                boolean isCommon = false;
+                for(int j=0;j<typeArray1.length;j++){
+                    if(typeArray1[j].equals(good_guige.get(i).title)){
+                        mSpecNameCommonList.add(good_guige.get(i));
+                        isCommon = true;
+                        break;
+                    }
+                }
+                if(!isCommon){
+                    good_guige.get(i).selfFlag = true;
+                    mSpecNameSelfList.add(good_guige.get(i));
+                }
+       /*         if (good_guige.get(i).selfFlag)
                     mSpecNameSelfList.add(good_guige.get(i));
                 else
-                    mSpecNameCommonList.add(good_guige.get(i));
+                    mSpecNameCommonList.add(good_guige.get(i));*/
             }
         }
         List<StoreManagerListEntity.SkuListEntity> good_spec = (List<StoreManagerListEntity.SkuListEntity>) getIntent().getSerializableExtra("good_spec");
@@ -130,6 +142,7 @@ public class GoodsSpecActivity extends BaseActivity {
                     mSpecNameSelfList.remove(position);
                     mNumberAdapter.notifyDataSetChanged();
                     mSelfAdapter.notifyDataSetChanged();
+                    //mSelfAdapter.notifyItemChanged(mSelfAdapter.getItemCount());
                     return;
                 }
                 //initPriceAndNumber();
@@ -141,10 +154,17 @@ public class GoodsSpecActivity extends BaseActivity {
                 StoreManagerListEntity.GuigesEntity bean = new StoreManagerListEntity.GuigesEntity();
                 bean.title = entity;
                 bean.selfFlag = true;
-                mSpecNameSelfList.add(bean);
-                mSelfAdapter.notifyDataSetChanged();
+                if(mSpecNameSelfList.size()>position) {
+                    updatePriceAndNumberItem(mSpecNameSelfList.get(position).title,entity);
+                    mSpecNameSelfList.get(position).title = entity;
+                }
+                else {
+                    mSpecNameSelfList.add(bean);
+                    addPriceAndNumberItem(bean.title);
+                }
+                mSelfAdapter.notifyItemChanged(position);
+                mSelfAdapter.notifyItemChanged(mSpecNameSelfList.size());
 
-                addPriceAndNumberItem(bean.title);
                 mNumberAdapter.notifyDataSetChanged();
 
             }
@@ -260,6 +280,16 @@ public class GoodsSpecActivity extends BaseActivity {
         for(int i=0;i<mSpecPriceList.size();i++){
             if(title.equals(mSpecPriceList.get(i).spec)) {
                 mSpecPriceList.remove(i);
+                return;
+            }
+        }
+    }
+
+    public void updatePriceAndNumberItem(String titleOld,String titleNew){
+        for(int i=0;i<mSpecPriceList.size();i++){
+            if(titleOld.equals(mSpecPriceList.get(i).spec)) {
+                mSpecPriceList.get(i).sku_name = titleNew;
+                mSpecPriceList.get(i).spec = titleNew;
                 return;
             }
         }

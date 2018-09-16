@@ -343,10 +343,10 @@ public class CreateStoreActivity extends BaseActivity {
                 photo = photo + imageList.get(i);
             }
         }
-        if (TextUtils.isEmpty(photo)) {
+/*        if (TextUtils.isEmpty(photo)) {
             UIUtil.toastShort(this, "请选择营业执照或身份证照片");
             return;
-        }
+        }*/
 
         if (!isEdit) {
             if ("2".equals(mPutils.getIsCheck())) {

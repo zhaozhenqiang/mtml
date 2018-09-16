@@ -169,6 +169,7 @@ public class PublishCommodityActivity extends BaseActivity {
         StoreManagerListEntity store_entity = (StoreManagerListEntity) getIntent().getSerializableExtra("store_entity");
         mIs_edit = getIntent().getBooleanExtra("is_edit",false);
 
+
         mAdapter = new GridImageAdapterNew(this, onAddPicClickListener);
         //FullyGridLayoutManager manager = new FullyGridLayoutManager(PublishCommodityActivity.this, 3, GridLayoutManager.VERTICAL, false);
         //mRvPhoto.setLayoutManager(manager);
@@ -221,6 +222,17 @@ public class PublishCommodityActivity extends BaseActivity {
             this.desc_image.addAll(desc_image);
             mGood_spec = store_entity.skuList;
             mGuiges = store_entity.guiges;
+            if(mGuiges!=null){
+                if(mGuiges!=null&&mGuiges.size()>0){
+                    for(int i=0;i<mGuiges.get(0).guigeArray.size()-1;i++){
+                        StoreManagerListEntity.GuigesEntity entity = new StoreManagerListEntity.GuigesEntity();
+                        entity.title = mGuiges.get(0).guigeArray.get(i);
+                        mGuiges.add(entity);
+
+
+                    }
+                }
+            }
             mTvDesc.setText("已填写");
             if(mGood_spec.size()==1){
                 /*
@@ -231,15 +243,17 @@ public class PublishCommodityActivity extends BaseActivity {
                     mTvGoodsSpec.setText("未填写");
                     mEtNumber.setText(mGood_spec.get(0).stock);
                     mEtPrice.setText(mGood_spec.get(0).price);
+                    mLlNumber.setVisibility(View.VISIBLE);
+                    mLlPrice.setVisibility(View.VISIBLE);
                 }else {
                     mTvGoodsSpec.setText("已填写");
-                    mEtPrice.setVisibility(View.GONE);
-                    mEtNumber.setVisibility(View.GONE);
+                    mLlNumber.setVisibility(View.GONE);
+                    mLlPrice.setVisibility(View.GONE);
                 }
             }else {
                 mTvGoodsSpec.setText("已填写");
-                mEtPrice.setVisibility(View.GONE);
-                mEtNumber.setVisibility(View.GONE);
+                mLlNumber.setVisibility(View.GONE);
+                mLlPrice.setVisibility(View.GONE);
             }
         }
 
