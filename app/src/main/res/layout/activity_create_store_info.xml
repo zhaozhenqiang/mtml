@@ -125,7 +125,7 @@
 
             </LinearLayout>
 
-<!--            <TextView
+            <TextView
                 android:id="@+id/tv_desc"
                 android:paddingLeft="@dimen/height_15dp"
                 android:paddingRight="@dimen/height_15dp"
@@ -134,14 +134,16 @@
                 android:textColor="@color/tc_black3"
                 android:text="请上传营业执照或者个人手持身份证正反面"
                 android:layout_width="match_parent"
+                android:visibility="invisible"
                 android:layout_height="wrap_content" />
 
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_phone"
                 android:padding="@dimen/height_15dp"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>-->
+                android:layout_height="match_parent"/>
         </LinearLayout>
     </ScrollView>
 

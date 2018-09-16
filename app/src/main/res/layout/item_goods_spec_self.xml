@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="@dimen/height_10dp"
-        android:layout_marginRight="@dimen/height_15dp"
+        android:layout_marginRight="@dimen/L"
         android:visibility="visible"
         >
 
@@ -43,7 +43,8 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:scaleType="center"
-            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/rl_del"
+
             android:src="@drawable/icon_delet_photo" />
 
     </RelativeLayout>
