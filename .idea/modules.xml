@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/easeui/easeui.iml" filepath="$PROJECT_DIR$/easeui/easeui.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/mtml.iml" filepath="$PROJECT_DIR$/.idea/mtml.iml" />
+      <module fileurl="file://E:\workspace\mutoumulao\.idea\mtml.iml" filepath="E:\workspace\mutoumulao\.idea\mtml.iml" />
       <module fileurl="file://$PROJECT_DIR$/mutoumulao.iml" filepath="$PROJECT_DIR$/mutoumulao.iml" />
       <module fileurl="file://$PROJECT_DIR$/picture_library/picture_library.iml" filepath="$PROJECT_DIR$/picture_library/picture_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/ucrop/ucrop.iml" filepath="$PROJECT_DIR$/ucrop/ucrop.iml" />

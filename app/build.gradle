@@ -6,8 +6,8 @@ android {
         applicationId "com.mutoumulao.expo.redwood"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 24
-        versionName "1.2.4"
+        versionCode 25
+        versionName "1.2.5"
         testInstrumentationRunner "android.support.GoodsDetialEntity.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
