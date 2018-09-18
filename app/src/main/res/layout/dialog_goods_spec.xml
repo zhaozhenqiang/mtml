@@ -94,7 +94,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="数量"
-                    android:textColor="@color/tc_black3" />
+                    android:textColor="@color/tc_black3"
+                    />
 
                 <com.mutoumulao.expo.redwood.view.AmountView
                     android:id="@+id/av_add_subtract"

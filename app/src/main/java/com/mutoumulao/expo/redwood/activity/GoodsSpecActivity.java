@@ -272,7 +272,7 @@ public class GoodsSpecActivity extends BaseActivity {
     public void addPriceAndNumberItem(String title){
         StoreManagerListEntity.SkuListEntity serverEntity = new StoreManagerListEntity.SkuListEntity();
         serverEntity.spec = title;
-        serverEntity.sku_name = serverEntity.spec;
+        serverEntity.sku_name = "颜色分类";//serverEntity.spec;
         mSpecPriceList.add(serverEntity);
     }
 
@@ -288,7 +288,7 @@ public class GoodsSpecActivity extends BaseActivity {
     public void updatePriceAndNumberItem(String titleOld,String titleNew){
         for(int i=0;i<mSpecPriceList.size();i++){
             if(titleOld.equals(mSpecPriceList.get(i).spec)) {
-                mSpecPriceList.get(i).sku_name = titleNew;
+                mSpecPriceList.get(i).sku_name = "颜色分类";//titleNew;
                 mSpecPriceList.get(i).spec = titleNew;
                 return;
             }

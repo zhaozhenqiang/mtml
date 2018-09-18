@@ -81,19 +81,19 @@ public class GoodsSpecActivityOld extends BaseActivity {
             @Override
             public void onAddItemListener(List<String> entity, int position) {
                 mSpecPriceList.clear();
-                String sku_name = "";
+/*                String sku_name = "";
                 for (int i = 0; i < mSpecNameList.size(); i++) {
                     if (i < mSpecNameList.size() - 1) {
                         sku_name = sku_name + mSpecNameList.get(i).title + ",";
                     } else {
                         sku_name = sku_name + mSpecNameList.get(i).title;
                     }
-                }
+                }*/
                 if (entity != null) {
                     for (int i = 0; i < entity.size(); i++) {
                         StoreManagerListEntity.SkuListEntity serverEntity = new StoreManagerListEntity.SkuListEntity();
                         serverEntity.spec = entity.get(i);
-                        serverEntity.sku_name = sku_name;
+                        serverEntity.sku_name = "颜色分类";
                         mSpecPriceList.add(serverEntity);
                     }
                 }
