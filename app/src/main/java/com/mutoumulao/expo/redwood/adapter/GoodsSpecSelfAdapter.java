@@ -5,21 +5,17 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.mutoumulao.expo.redwood.R;
 import com.mutoumulao.expo.redwood.entity.StoreManagerListEntity;
 import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecyclerReduceItemListener;
 import com.mutoumulao.expo.redwood.entity.custom_interface.RecyclerViewAddOneListener;
-import com.mutoumulao.expo.redwood.util.UIUtil;
 
 import java.util.List;
 
@@ -48,6 +44,14 @@ public class GoodsSpecSelfAdapter extends RecyclerView.Adapter<GoodsSpecSelfAdap
     @Override
     public void onBindViewHolder(final GoodsSpecTypeViewHolder holder, final int position) {
         holder.mRl_del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+/*                getItem.remove(position);
+                notifyDataSetChanged();*/
+                mItemDeleteListener.onReduceItemListener(position);
+            }
+        });
+        holder.mIv_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 /*                getItem.remove(position);

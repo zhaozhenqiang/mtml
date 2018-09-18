@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
@@ -36,7 +35,6 @@ import com.mutoumulao.expo.redwood.util.JsonFileReader;
 import com.mutoumulao.expo.redwood.util.StringUtil;
 import com.mutoumulao.expo.redwood.util.UIUtil;
 import com.mutoumulao.expo.redwood.util.http.ResponseCallback;
-import com.mutoumulao.expo.redwood.view.FullyGridLayoutManager;
 
 import org.greenrobot.eventbus.EventBus;
 import org.json.JSONArray;
@@ -332,7 +330,7 @@ public class PublishCommodityActivity extends BaseActivity {
     }
 
     private void publish() {
-        if (mGood_spec == null) {
+        if (mGood_spec == null||mGood_spec.size()==0) {
             String price = mEtPrice.getText().toString();
             if (TextUtils.isEmpty(price)) {
                 UIUtil.toastShort(this, "请输入价格");
@@ -350,6 +348,25 @@ public class PublishCommodityActivity extends BaseActivity {
             entity.sku_name = "默认规格";
             entity.spec = "默认规格";
             mGood_spec.add(entity);
+        }else{
+            if(mGood_spec.size()==1&&"默认规格".equals(mGood_spec.get(0).spec)){
+                String price = mEtPrice.getText().toString();
+                if (TextUtils.isEmpty(price)) {
+                    UIUtil.toastShort(this, "请输入价格");
+                    return;
+                }
+                String number = mEtNumber.getText().toString();
+                if (TextUtils.isEmpty(number)) {
+                    UIUtil.toastShort(this, "请输入库存");
+                    return;
+                }
+                StoreManagerListEntity.SkuListEntity entity = mGood_spec.get(0);
+                entity.price = price;
+                entity.stock = number;
+                entity.sku_name = "默认规格";
+                entity.spec = "默认规格";
+            }
+
         }
         String name = mEtName.getText().toString().trim();
         if (TextUtils.isEmpty(name)) {

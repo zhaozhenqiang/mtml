@@ -68,12 +68,12 @@ public class GoodsSpecActivity extends BaseActivity {
     @BindView(R.id.iv_more)
     ImageView mIvMore;
 
-    private String[] typeArray1 = {"尺寸", "材质", "型号", "颜色", "款式",
-            "器型", "口味", "色号", "适用人群", "容量",
-            "花型", "尺码", "地点", "香型", "货号",
-            "组合", "成份", "版本", "度数", "运营商",
-            "属性", "重量", "地区", "套餐", "类别",
-            "适用年龄", "功效", "品类", "时间"};
+    private String[] typeArray1 = {"乳白色", "蓝色", "黑色", "白色", "青色",
+            "银色", "灰色", "桔红色", "西瓜红", "粉红色",
+            "明黄色", "荧光黄", "金色", "墨绿色", "米白色",
+            "银色", "深灰色", "玫红色", "红色", "卡其色",
+            "杏色", "香横色", "浅黄色", "翠绿色", "绿色",
+            "天蓝色", "花色", "米黄色"};//, "时间"};
     private List<StoreManagerListEntity.GuigesEntity> mSpecNameSelfList = new ArrayList<>();
     private List<StoreManagerListEntity.GuigesEntity> mSpecNameCommonList = new ArrayList<>();
     private List<StoreManagerListEntity.SkuListEntity> mSpecPriceList = new ArrayList<>();
