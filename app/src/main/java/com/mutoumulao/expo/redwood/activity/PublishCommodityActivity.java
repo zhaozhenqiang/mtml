@@ -220,7 +220,7 @@ public class PublishCommodityActivity extends BaseActivity {
             this.desc_image.addAll(desc_image);
             mGood_spec = store_entity.skuList;
             mGuiges = store_entity.guiges;
-            if(mGuiges!=null){
+/*            if(mGuiges!=null){
                 if(mGuiges!=null&&mGuiges.size()>0){
                     for(int i=0;i<mGuiges.get(0).guigeArray.size()-1;i++){
                         StoreManagerListEntity.GuigesEntity entity = new StoreManagerListEntity.GuigesEntity();
@@ -230,7 +230,7 @@ public class PublishCommodityActivity extends BaseActivity {
 
                     }
                 }
-            }
+            }*/
             mTvDesc.setText("已填写");
             if(mGood_spec.size()==1){
                 /*
@@ -478,7 +478,7 @@ public class PublishCommodityActivity extends BaseActivity {
                 mGood_spec = (List<StoreManagerListEntity.SkuListEntity>) data.getSerializableExtra("good_spec");
                 mGuiges = (List<StoreManagerListEntity.GuigesEntity>) data.getSerializableExtra("good_guige");
                 if (mGood_spec==null || mGood_spec.size() == 0) {
-                    mTvGoodsSpec.setHint("未填写");
+                    mTvGoodsSpec.setText("未填写");
                     mLlNumber.setVisibility(View.VISIBLE);
                     mLlPrice.setVisibility(View.VISIBLE);
                 }else {

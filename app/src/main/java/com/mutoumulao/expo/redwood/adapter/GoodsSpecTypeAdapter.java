@@ -2,23 +2,17 @@ package com.mutoumulao.expo.redwood.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mutoumulao.expo.redwood.R;
 import com.mutoumulao.expo.redwood.base.BaseAdapter;
 import com.mutoumulao.expo.redwood.entity.StoreManagerListEntity;
-import com.mutoumulao.expo.redwood.entity.custom_interface.ImageRecyclerReduceItemListener;
 import com.mutoumulao.expo.redwood.entity.custom_interface.RecyclerViewAddItemListener;
-import com.mutoumulao.expo.redwood.util.UIUtil;
 import com.mutoumulao.expo.redwood.view.BaseRecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -44,14 +38,17 @@ public class GoodsSpecTypeAdapter extends BaseAdapter<StoreManagerListEntity.Gui
     public void onBindViewHolder(final GoodsSpecTypeViewHolder holder, final int position) {
         final StoreManagerListEntity.GuigesEntity item = getItem(position);
         holder.mTv_type_name.setText(item.title);
+/*
         mInfoAdapter = new GoodsSpecTypeInfoAdapter(mContext, item.guigeArray, position);
         holder.mRv_spec_size.setAdapter(mInfoAdapter);
 
         mInfoAdapter.setOnItemDeleteListener(new ImageRecyclerReduceItemListener() {
             @Override
             public void onReduceItemListener(int position) {
-                   /* item.info_name.remove(position);
-                    mInfoAdapter.notifyDataSetChanged();*/
+                   */
+/* item.info_name.remove(position);
+                    mInfoAdapter.notifyDataSetChanged();*//*
+
                 List<String> list = bindAnotherRecyler1();
                 mAddItemListener.onAddItemListener(list, position);
             }
@@ -63,7 +60,9 @@ public class GoodsSpecTypeAdapter extends BaseAdapter<StoreManagerListEntity.Gui
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     String size = holder.mEt_size.getText().toString().trim();
                     if (!TextUtils.isEmpty(size)) {
-                        mInfoAdapter = new GoodsSpecTypeInfoAdapter(mContext, item.guigeArray /*mTypeList*/, position);
+                        mInfoAdapter = new GoodsSpecTypeInfoAdapter(mContext, item.guigeArray */
+/*mTypeList*//*
+, position);
                         item.guigeArray.add(size);
 
 //                        List<String> list = bindAnotherRecyler();
@@ -88,13 +87,14 @@ public class GoodsSpecTypeAdapter extends BaseAdapter<StoreManagerListEntity.Gui
                 return false;
             }
         });
+*/
 
 
     }
 
     private List<String> bindAnotherRecyler1() {
         int b = 0;
-        if (mItems.size() > 0) {
+/*        if (mItems.size() > 0) {
             List<String> copylist = new ArrayList<>();
             for (int a = 0; a < mItems.size(); a++) {
                 if (mItems.get(a).guigeArray.size() != 0) {
@@ -122,12 +122,12 @@ public class GoodsSpecTypeAdapter extends BaseAdapter<StoreManagerListEntity.Gui
                 }
                 return L0;
             }
-        }
+        }*/
         return null;
     }
 
     private List<String> bindAnotherRecyler() {
-        if (mItems.size() > 0) {
+/*        if (mItems.size() > 0) {
 
             List<String> L0 = mItems.get(0).guigeArray;
             for (int i = 1; i < mItems.size(); i++) {
@@ -143,7 +143,7 @@ public class GoodsSpecTypeAdapter extends BaseAdapter<StoreManagerListEntity.Gui
                 L0 = list;
             }
             return L0;
-        }
+        }*/
         return null;
     }
 

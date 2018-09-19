@@ -95,8 +95,8 @@ public class GoodsSpecActivity extends BaseActivity {
 
     private void initView() {
 
-        List<StoreManagerListEntity.GuigesEntity> good_guige = (List<StoreManagerListEntity.GuigesEntity>) getIntent().getSerializableExtra("good_guige");
-        if (good_guige != null) {
+        //List<StoreManagerListEntity.GuigesEntity> good_guige = (List<StoreManagerListEntity.GuigesEntity>) getIntent().getSerializableExtra("good_guige");
+        /*if (good_guige != null) {
             for(int i=0;i<good_guige.size();i++) {
                 boolean isCommon = false;
                 for(int j=0;j<typeArray1.length;j++){
@@ -110,13 +110,40 @@ public class GoodsSpecActivity extends BaseActivity {
                     good_guige.get(i).selfFlag = true;
                     mSpecNameSelfList.add(good_guige.get(i));
                 }
+       *//*         if (good_guige.get(i).selfFlag)
+                    mSpecNameSelfList.add(good_guige.get(i));
+                else
+                    mSpecNameCommonList.add(good_guige.get(i));*//*
+            }
+        }*/
+        List<StoreManagerListEntity.SkuListEntity> good_spec = (List<StoreManagerListEntity.SkuListEntity>) getIntent().getSerializableExtra("good_spec");
+        List<StoreManagerListEntity.GuigesEntity> good_guige = new ArrayList<>();
+        if (good_spec != null) {
+            for(int i=0;i<good_spec.size();i++) {
+                boolean isCommon = false;
+                for(int j=0;j<typeArray1.length;j++){
+                    if(typeArray1[j].equals(good_spec.get(i).spec)){
+                        StoreManagerListEntity.GuigesEntity entity = new StoreManagerListEntity.GuigesEntity();
+                        entity.title = good_spec.get(i).spec;
+                        mSpecNameCommonList.add(entity);
+                        isCommon = true;
+                        break;
+                    }
+                }
+                if(!isCommon){
+                    StoreManagerListEntity.GuigesEntity entity = new StoreManagerListEntity.GuigesEntity();
+                    entity.title = good_spec.get(i).spec;
+                    entity.selfFlag = true;
+                    mSpecNameSelfList.add(entity);
+                }
        /*         if (good_guige.get(i).selfFlag)
                     mSpecNameSelfList.add(good_guige.get(i));
                 else
                     mSpecNameCommonList.add(good_guige.get(i));*/
             }
         }
-        List<StoreManagerListEntity.SkuListEntity> good_spec = (List<StoreManagerListEntity.SkuListEntity>) getIntent().getSerializableExtra("good_spec");
+
+
         if (good_spec != null) {
             mSpecPriceList.addAll(good_spec);
         }

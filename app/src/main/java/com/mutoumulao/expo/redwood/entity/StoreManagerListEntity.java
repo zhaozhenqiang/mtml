@@ -1,7 +1,6 @@
 package com.mutoumulao.expo.redwood.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -90,7 +89,7 @@ public class StoreManagerListEntity implements Serializable {
          */
         public boolean selfFlag;
         public String title;
-        public List<String> guigeArray= new ArrayList<>();
+        //public List<String> guigeArray= new ArrayList<>();
     }
 
 }
